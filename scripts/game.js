@@ -16,46 +16,46 @@ function init() {
 
 window.addEventListener("keydown", (e) => {
   if (e.keyCode == 39) {
-    keyboard.right = true;
+    keyboard.RIGHT = true;
   }
 
   if (e.keyCode == 37) {
-    keyboard.left = true;
+    keyboard.LEFT = true;
   }
 
   if (e.keyCode == 38) {
-    keyboard.up = true;
+    keyboard.UP = true;
   }
 
   if (e.keyCode == 40) {
-    keyboard.down = true;
+    keyboard.DOWN = true;
   }
 
   if (e.keyCode == 32) {
-    keyboard.space = true;
+    keyboard.SPACE = true;
   }
   console.log(e);
 });
 
 window.addEventListener("keyup", (e) => {
   if (e.keyCode == 39) {
-    keyboard.right = false;
+    keyboard.RIGHT = false;
   }
 
   if (e.keyCode == 37) {
-    keyboard.left = false;
+    keyboard.LEFT = false;
   }
 
   if (e.keyCode == 38) {
-    keyboard.up = false;
+    keyboard.UP = false;
   }
 
   if (e.keyCode == 40) {
-    keyboard.down = false;
+    keyboard.DOWN = false;
   }
 
   if (e.keyCode == 32) {
-    keyboard.space = false;
+    keyboard.SPACE = false;
   }
   console.log(e);
 });
