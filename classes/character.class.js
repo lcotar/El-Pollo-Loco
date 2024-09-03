@@ -27,10 +27,12 @@ class Character extends MovableObject {
     setInterval(() => {
       if (this.world.keyboard.RIGHT) {
         this.x += this.speed; // Move right
+        this.otherDirection = false; // not mirroring character
       }
 
       if (this.world.keyboard.LEFT) {
         this.x -= this.speed; // Move left
+        this.otherDirection = true; //mirroring character
       }
     }, 1000 / 60);
 
