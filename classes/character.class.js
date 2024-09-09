@@ -34,6 +34,7 @@ class Character extends MovableObject {
         this.x -= this.speed; // Move left
         this.otherDirection = true; //mirroring character
       }
+      this.world.cameraX = -this.x;
     }, 1000 / 60);
 
     setInterval(() => {

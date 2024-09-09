@@ -23,6 +23,7 @@ class World {
   canvas;
   ctx;
   keyboard;
+  cameraX = 0;
 
   constructor(canvas, keyboard) {
     this.ctx = canvas.getContext("2d");
@@ -41,11 +42,14 @@ class World {
   canvas by calling itself using `requestAnimationFrame`. */
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.ctx.translate(this.cameraX, 0);
     this.addObjectsToMap(this.backgroundObjects);
     this.addToMap(this.character);
 
     this.addObjectsToMap(this.clouds);
     this.addObjectsToMap(this.enemies);
+
+    this.ctx.translate(-this.cameraX, 0);
 
     // Draw() wird immer wieder aufgerufen!!!
     let self = this;
