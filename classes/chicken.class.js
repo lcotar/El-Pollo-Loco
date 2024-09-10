@@ -8,6 +8,8 @@ class Chicken extends MovableObject {
     "assets/img/3_enemies_chicken/chicken_normal/1_walk/3_w.png",
   ];
 
+  chickenSound = new Audio("assets/audio/chicken.mp4");
+
   constructor() {
     super().loadImage(
       "assets/img/3_enemies_chicken/chicken_normal/1_walk/1_w.png"
@@ -23,6 +25,7 @@ class Chicken extends MovableObject {
   animation() {
     this.moveLeft();
     setInterval(() => {
+      // this.chickenSound.play();
       let i = this.currentImg % this.IMAGES_WALKING.length; // let i = 0 % 6; => 0, Rest 0
       let path = this.IMAGES_WALKING[i];
       this.img = this.imgCache[path];

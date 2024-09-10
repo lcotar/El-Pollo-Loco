@@ -12,6 +12,8 @@ class Character extends MovableObject {
   ];
   world;
 
+  walkingSound = new Audio("assets/audio/Walking_through_grass_(long).mp3");
+
   constructor() {
     super().loadImage("assets/img/2_character_pepe/2_walk/W-21.png");
     this.loadImages(this.IMAGES_WALKING);
@@ -25,14 +27,17 @@ class Character extends MovableObject {
 
   animation() {
     setInterval(() => {
+      this.walkingSound.pause();
       if (this.world.keyboard.RIGHT && this.x < this.world.lvl.lvlEndX) {
         this.x += this.speed; // Move right
         this.otherDirection = false; // not mirroring character
+        this.walkingSound.play();
       }
 
       if (this.world.keyboard.LEFT && this.x > 0) {
         this.x -= this.speed; // Move left
         this.otherDirection = true; //mirroring character
+        this.walkingSound.play();
       }
       this.world.cameraX = -this.x + 100;
     }, 1000 / 60);
