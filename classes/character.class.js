@@ -42,16 +42,21 @@ class Character extends MovableObject {
     setInterval(() => {
       this.walkingSound.pause();
       if (this.world.keyboard.RIGHT && this.x < this.world.lvl.lvlEndX) {
-        this.x += this.speed; // Move right
-        this.otherDirection = false; // not mirroring character
+        this.moveRight();
         this.walkingSound.play();
+        this.otherDirection = false; // not mirroring character
       }
 
       if (this.world.keyboard.LEFT && this.x > 0) {
-        this.x -= this.speed; // Move left
-        this.otherDirection = true; //mirroring character
+        this.moveLeft();
         this.walkingSound.play();
+        this.otherDirection = true; // mirroring character
       }
+
+      if (this.world.keyboard.SPACE && !this.isAboveGround()) {
+        this.jump();
+      }
+
       this.world.cameraX = -this.x + 100;
     }, 1000 / 60);
 
@@ -66,6 +71,4 @@ class Character extends MovableObject {
       }
     }, 50);
   }
-
-  jump() {}
 }

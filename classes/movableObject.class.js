@@ -13,7 +13,7 @@ class MovableObject {
 
   applyGravity() {
     setInterval(() => {
-      if (this.isAboveGround()) {
+      if (this.isAboveGround() || this.speedY > 0) {
         this.y -= this.speedY;
         this.speedY -= this.acceleration;
       }
@@ -21,7 +21,7 @@ class MovableObject {
   }
 
   isAboveGround() {
-    return this.y < 130;
+    return this.y < 120;
   }
 
   loadImage(path) {
@@ -45,15 +45,19 @@ class MovableObject {
   }
 
   moveRight() {
-    console.log("moving right");
+    this.x += this.speed; // Move right
   }
 
   moveLeft() {
-    setInterval(() => {
-      this.x -= 0.15;
-      if (this.x < -this.width) {
-        this.x = Math.random() * 500;
-      }
-    }, 1000 / 60);
+    this.x -= this.speed; // Move left
+
+    this.x -= 0.15;
+    if (this.x < -this.width) {
+      this.x = Math.random() * 500;
+    }
+  }
+
+  jump() {
+    this.speedY = 30;
   }
 }
