@@ -1,3 +1,7 @@
+/* The `class endboss extends MovableObject` statement is creating a new class named `endboss` that
+extends the `MovableObject` class. This means that the `endboss` class inherits all the properties
+and methods from the `MovableObject` class, allowing it to reuse and extend the functionality
+defined in the `MovableObject` class. */
 class endboss extends MovableObject {
   height = 400;
   width = 250;

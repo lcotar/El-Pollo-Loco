@@ -21,6 +21,7 @@ class World {
     this.keyboard = keyboard;
     this.draw();
     this.setToWorld();
+    this.checkCollision();
   }
 
   /* The `setToWorld` method in the `World` class is setting the `world` property of the `character`
@@ -29,6 +30,25 @@ class World {
   communication between the character and the world within the game or application. */
   setToWorld() {
     this.character.world = this;
+  }
+
+  checkCollision() {
+    setInterval(() => {
+      this.lvl.enemies.forEach((enemy) => {
+        if (this.character.isColliding(enemy)) {
+          this.character.hit();
+        }
+        /* if (
+          enemy.x + enemy.width > this.character.x &&
+          enemy.x < this.character.x + this.character.width &&
+          enemy.y + enemy.height > this.character.y &&
+          enemy.y < this.character.y + this.character.height
+        ) {
+          this.character.health--;
+          enemy.remove();
+        } */
+      });
+    }, 1000);
   }
 
   /* The `draw` method in the `World` class is responsible for clearing the canvas, adding the

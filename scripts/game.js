@@ -8,8 +8,6 @@ function init() {
   canvas = document.getElementById("canvas");
   world = new World(canvas, keyboard);
 
-  console.log("My Character is", world.character);
-
   // character.src = "./assets/img/2_character_pepe/2_walk/W-21.png";
   // ctx.drawImage(character, 20, 20, 50, 150);
 }
@@ -34,7 +32,7 @@ window.addEventListener("keydown", (e) => {
   if (e.keyCode == 32) {
     keyboard.SPACE = true;
   }
-  console.log(e);
+  // console.log(e);
 });
 
 window.addEventListener("keyup", (e) => {
@@ -57,5 +55,5 @@ window.addEventListener("keyup", (e) => {
   if (e.keyCode == 32) {
     keyboard.SPACE = false;
   }
-  console.log(e);
+  // console.log(e);
 });
