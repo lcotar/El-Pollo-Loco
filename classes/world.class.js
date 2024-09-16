@@ -7,6 +7,7 @@ class World {
   ctx;
   keyboard;
   cameraX = 0;
+  statusBar = new Statusbar();
 
   /* The `constructor` in the `World` class is a special method that is automatically called when a new
   instance of the `World` class is created. It takes two parameters `canvas` and `keyboard`, which
@@ -37,6 +38,7 @@ class World {
       this.lvl.enemies.forEach((enemy) => {
         if (this.character.isColliding(enemy)) {
           this.character.hit();
+          this.statusBar.setPercentage(this.character.energy);
         }
         /* if (
           enemy.x + enemy.width > this.character.x &&
@@ -58,7 +60,15 @@ class World {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.ctx.translate(this.cameraX, 0);
     this.addObjectsToMap(this.lvl.backgroundObjects);
+
     this.addToMap(this.character);
+
+    this.ctx.translate(-this.cameraX, 0); // Back
+    // -------- SPace for fixed Objects --------
+    this.addToMap(this.statusBar); // Statusbar Health
+    this.addToMap(this.statusBar); // Statusbar Coin
+    this.addToMap(this.statusBar); // Statusbar Bottle
+    this.ctx.translate(this.cameraX, 0); // Forwards
 
     this.addObjectsToMap(this.lvl.clouds);
     this.addObjectsToMap(this.lvl.enemies);
