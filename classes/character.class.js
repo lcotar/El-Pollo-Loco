@@ -62,7 +62,7 @@ class Character extends MovableObject {
     this.animation.start(); */
   }
 
-  /**The `animation()` method in the `Character` class is responsible for setting up two intervals.  */
+  /**The `animation()` method in the `Character` class is responsible for setting up two intervals.*/
   animation() {
     setInterval(() => {
       this.walkingSound.pause();

@@ -1,3 +1,7 @@
+/** The `class DrawableObject` is defining a JavaScript class that serves as a base class for objects
+ * that can be drawn on a canvas. It contains properties such as `x`, `y`, `height`, `width`, `img`,
+ * `imgCache`, and `currentImg` to manage the position, size, and images associated with the drawable
+ * object. */
 class DrawableObject {
   x = 120;
   y = 280;
@@ -30,9 +34,9 @@ class DrawableObject {
   }
 
   /** The `drawFrame(ctx)` method is responsible for drawing a frame around the movable object when it
-  is being rendered on the canvas. It checks if the object is an instance of the `Character` or
-  `Chicken` class, and if so, it draws a blue rectangular frame around the object using the canvas
-  context `ctx`. */
+   * is being rendered on the canvas. It checks if the object is an instance of the `Character` or
+   * `Chicken` class, and if so, it draws a blue rectangular frame around the object using the canvas
+   * context `ctx`. */
   drawFrame(ctx) {
     if (this instanceof Character || this instanceof Chicken) {
       ctx.beginPath();
