@@ -8,38 +8,38 @@ class StatusbarBottles extends DrawableObject {
     "assets/img/7_statusbars/1_statusbar/3_statusbar_bottle/orange/100.png",
   ];
 
-  bottles = 0;
+  bottle = 0;
 
   constructor() {
     super();
     this.loadImages(this.IMAGES_BOTTLES);
-    this.x = 510;
-    this.y = 50;
+    this.x = 20;
+    this.y = 100;
     this.width = 200;
     this.height = 60;
     this.setBottle(0);
   }
 
-  setBottle(bottles) {
-    this.bottles = bottles;
+  setBottle(bottle) {
+    this.bottle = bottle;
     let path = this.IMAGES_BOTTLES[this.bottleIndex()];
-    this.img = this.imageCache[path];
+    this.img = this.imgCache[path];
   }
 
   bottleIndex() {
-    if (this.bottles == 0) {
+    if (this.bottle == 0) {
       return 0;
-    } else if (this.bottles == 1) {
+    } else if (this.bottle == 1) {
       return 1;
-    } else if (this.bottles == 2) {
+    } else if (this.bottle == 2) {
       return 2;
-    } else if (this.bottles == 3) {
+    } else if (this.bottle == 3) {
       return 3;
-    } else if (this.bottles == 4) {
+    } else if (this.bottle == 4) {
       return 4;
-    } else if (this.bottles == 5) {
+    } else if (this.bottle == 5) {
       return 5;
-    } else if (this.bottles > 5) {
+    } else if (this.bottle > 5) {
       return 5;
     }
   }

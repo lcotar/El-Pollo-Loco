@@ -1,8 +1,8 @@
-/* The `class Chicken extends MovableObject` statement is creating a new class named `Chicken` that
-extends the `MovableObject` class. This means that the `Chicken` class inherits all the properties
-and methods from the `MovableObject` class, allowing it to reuse and extend the functionality
-defined in the `MovableObject` class. This is a common practice in object-oriented programming to
-promote code reusability and maintainability. */
+/** The `class Chicken extends MovableObject` statement is creating a new class named `Chicken` that
+ * extends the `MovableObject` class. This means that the `Chicken` class inherits all the properties
+ * and methods from the `MovableObject` class, allowing it to reuse and extend the functionality
+ * defined in the `MovableObject` class. This is a common practice in object-oriented programming to
+ * promote code reusability and maintainability. */
 class Chicken extends MovableObject {
   y = 350;
   height = 80;

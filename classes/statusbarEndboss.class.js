@@ -15,17 +15,20 @@ class StatusbarEndboss extends DrawableObject {
     this.y = 0;
     this.width = 200;
     this.height = 60;
-    this.setBoss(100);
+    this.setBoss(100); // Startet mit voller Energie
   }
 
   setBoss(energy) {
-    this.energy = energy;
+    // Sicherstellen, dass die Energie im Bereich von 0 bis 100 liegt
+    this.energy = Math.max(0, Math.min(energy, 100));
+
     let path = this.IMAGES_ENDBOSS[this.endbossIndex()];
-    this.img = this.imageCache[path];
+    this.img = this.imgCache[path];
   }
 
   endbossIndex() {
-    if (this.energy >= 100) {
+    // Absteigende Bedingungsprüfung für bessere Lesbarkeit
+    if (this.energy == 100) {
       return 5;
     } else if (this.energy > 80) {
       return 4;
