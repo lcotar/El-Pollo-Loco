@@ -1,0 +1,1 @@
+class ThrowableObjects extends DrawableObject {}
