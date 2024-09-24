@@ -12,8 +12,9 @@ class World {
   statusBarCoins = new StatusbarCoin();
   statusBarBoss = new StatusbarEndboss();
   // boss = new Endboss();
-  bottle = false;
-  bottles = 0;
+  throwableObjects = [];
+  // bottle = false;
+  // bottles = 0;
   coins = 0;
 
   /** The constructor in the World class is a special method that is automatically called when a new
@@ -29,7 +30,7 @@ class World {
     this.keyboard = keyboard;
     this.draw();
     this.setToWorld();
-    this.checkCollision();
+    this.run();
   }
 
   /** The setToWorld method in the World class is setting the world property of the character
@@ -44,18 +45,33 @@ class World {
    *  collisions between the character and enemies in the game world. It uses setInterval() to
    *  repeatedly execute a function that iterates over the enemies in the current level (lvl) and
    *  checks if the character is colliding with any of them. */
-  checkCollision() {
+  run() {
     setInterval(() => {
-      this.lvl.enemies.forEach((enemy) => {
-        if (this.character.isColliding(enemy)) {
-          this.character.hit();
-          this.statusBar.setPercentage(this.character.energy);
-          this.statusBarBottle.setBottle(this.bottles);
-          this.statusBarCoins.setCoin(this.coins);
-          this.statusBarBoss.setBoss(this.boss.energy);
-        }
-      });
+      this.checkCollisions();
+      this.checkThrowObjects();
     }, 1000);
+  }
+
+  checkThrowObjects() {
+    if (this.keyboard.D) {
+      let bottle = new ThrowableObject(
+        this.character.x + 100,
+        this.character.y + 100
+      );
+      this.throwableObjects.push(bottle);
+    }
+  }
+
+  checkCollisions() {
+    this.lvl.enemies.forEach((enemy) => {
+      if (this.character.isColliding(enemy)) {
+        this.character.hit();
+        this.statusBar.setPercentage(this.character.energy);
+        this.statusBarBottle.setBottle(this.bottles);
+        this.statusBarCoins.setCoin(this.coins);
+        this.statusBarBoss.setBoss(this.boss.energy);
+      }
+    });
   }
 
   /** The draw method in the World class is responsible for clearing the canvas, adding the
@@ -79,6 +95,8 @@ class World {
 
     this.addObjectsToMap(this.lvl.clouds);
     this.addObjectsToMap(this.lvl.enemies);
+
+    this.addObjectsToMap(this.throwableObjects);
 
     this.ctx.translate(-this.cameraX, 0);
 

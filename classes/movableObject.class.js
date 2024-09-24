@@ -33,7 +33,12 @@ class MovableObject extends DrawableObject {
    * `applyGravity()` method to determine if the object should continue moving downward due to gravity
    * or if it has reached the ground level. */
   isAboveGround() {
-    return this.y < 150;
+    if (this instanceof ThrowableObject) {
+      // Throwable object should always fall
+      return true;
+    } else {
+      return this.y < 150;
+    }
   }
 
   /** The `isColliding(mo)` method in the `MovableObject` class is a collision detection method that
