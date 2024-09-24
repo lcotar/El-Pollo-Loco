@@ -1,7 +1,4 @@
 class ThrowableObject extends MovableObject {
-  /* speedY = 30;
-  speedX = 20; */
-
   constructor(x, y) {
     super().loadImage(
       "assets/img/6_salsa_bottle/bottle_rotation/1_bottle_rotation.png"
@@ -13,9 +10,7 @@ class ThrowableObject extends MovableObject {
     this.throw();
   }
 
-  throw(x, y) {
-    this.x = x;
-    this.y = y;
+  throw() {
     this.speedY = 30;
     /* speedX = 20; */
 

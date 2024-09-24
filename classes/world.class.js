@@ -13,7 +13,7 @@ class World {
   statusBarBoss = new StatusbarEndboss();
   // boss = new Endboss();
   throwableObjects = [];
-  // bottle = false;
+  bottle = false;
   // bottles = 0;
   coins = 0;
 
@@ -67,9 +67,9 @@ class World {
       if (this.character.isColliding(enemy)) {
         this.character.hit();
         this.statusBar.setPercentage(this.character.energy);
-        this.statusBarBottle.setBottle(this.bottles);
+        // this.statusBarBottle.setBottle(this.bottle);
         this.statusBarCoins.setCoin(this.coins);
-        this.statusBarBoss.setBoss(this.boss.energy);
+        // this.statusBarBoss.setBoss(this.boss.energy);
       }
     });
   }
