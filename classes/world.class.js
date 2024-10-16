@@ -43,9 +43,9 @@ class World {
     this.setToWorld();
     this.run();
 
-    setInterval(() => {
+    /* setInterval(() => {
       this.availableBottles();
-    }, 100);
+    }, 100); */
   }
 
   /**
