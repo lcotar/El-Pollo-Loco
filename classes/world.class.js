@@ -221,7 +221,7 @@ class World {
     this.addObjectsToMap(this.lvl.clouds);
     this.addObjectsToMap(this.lvl.enemies);
     this.addObjectsToMap(this.boss);
-    this.addObjectsToMap(this.throwableObject);
+    this.addObjectsToMap(this.throwableObjects);
     this.addObjectsToMap(this.lvl.coins);
     this.addObjectsToMap(this.lvl.bottles);
   }
