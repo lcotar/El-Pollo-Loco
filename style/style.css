@@ -1,9 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "64";
+  src: url("../assets/fonts/Sixtyfour_Convergence/SixtyfourConvergence-Regular-VariableFont_BLED\,SCAN\,XELA\,YELA.ttf")
+    format("truetype");
+  color: black;
+}
+
 body {
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-image: url("../assets/img/10_desert/desert.png");
+  background-position: center;
+  font-family: "64", Arial, sans-serif;
+}
+
+h1 {
+  font-size: 50px;
+  letter-spacing: 3px;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 canvas {
   background-color: black;
+}
+
+/* Smartphones Breite ------------- */
+@media only screen and (max-width: 720px) {
+  canvas {
+    width: 100%;
+  }
+}
+
+/* Smartphones Breite ------------- */
+@media only screen and (max-height: 480px) {
+  canvas {
+    height: 100vh;
+  }
+}
+
+.d-none {
+  display: none !important;
 }

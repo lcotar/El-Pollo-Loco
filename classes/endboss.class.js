@@ -1,13 +1,22 @@
-/** The `class endboss extends MovableObject` statement is creating a new class named `endboss` that
+/**
+ * The `class endboss extends MovableObject` statement is creating a new class named `endboss` that
  * extends the `MovableObject` class. This means that the `endboss` class inherits all the properties
  * and methods from the `MovableObject` class, allowing it to reuse and extend the functionality
- * defined in the `MovableObject` class. */
-class endboss extends MovableObject {
+ * defined in the `MovableObject` class.
+ * */
+class Endboss extends MovableObject {
   height = 400;
   width = 250;
   y = 50;
 
   IMAGES_WALKING = [
+    "assets/img/4_enemie_boss_chicken/1_walk/G1.png",
+    "assets/img/4_enemie_boss_chicken/1_walk/G2.png",
+    "assets/img/4_enemie_boss_chicken/1_walk/G3.png",
+    "assets/img/4_enemie_boss_chicken/1_walk/G4.png",
+  ];
+
+  IMAGES_ALERT = [
     "assets/img/4_enemie_boss_chicken/2_alert/G5.png",
     "assets/img/4_enemie_boss_chicken/2_alert/G6.png",
     "assets/img/4_enemie_boss_chicken/2_alert/G7.png",
@@ -18,17 +27,106 @@ class endboss extends MovableObject {
     "assets/img/4_enemie_boss_chicken/2_alert/G12.png",
   ];
 
+  IMAGES_ATTACK = [
+    "assets/img/4_enemie_boss_chicken/3_attack/G13.png",
+    "assets/img/4_enemie_boss_chicken/3_attack/G14.png",
+    "assets/img/4_enemie_boss_chicken/3_attack/G15.png",
+    "assets/img/4_enemie_boss_chicken/3_attack/G16.png",
+
+    "assets/img/4_enemie_boss_chicken/3_attack/G17.png",
+    "assets/img/4_enemie_boss_chicken/3_attack/G18.png",
+    "assets/img/4_enemie_boss_chicken/3_attack/G19.png",
+    "assets/img/4_enemie_boss_chicken/3_attack/G20.png",
+  ];
+
+  IMAGES_HURT = [
+    "assets/img/4_enemie_boss_chicken/4_hurt/G21.png",
+    "assets/img/4_enemie_boss_chicken/4_hurt/G22.png",
+    "assets/img/4_enemie_boss_chicken/4_hurt/G23.png",
+  ];
+
+  IMAGES_DEAD = [
+    "assets/img/4_enemie_boss_chicken/5_dead/G24.png",
+    "assets/img/4_enemie_boss_chicken/5_dead/G25.png",
+    "assets/img/4_enemie_boss_chicken/5_dead/G26.png",
+  ];
+
   constructor() {
     super().loadImage(this.IMAGES_WALKING[0]);
     this.loadImages(this.IMAGES_WALKING);
-    this.x = 700;
+    this.loadImages(this.IMAGES_ALERT);
+    this.loadImages(this.IMAGES_ATTACK);
+    this.loadImages(this.IMAGES_DEAD);
+    this.loadImages(this.IMAGES_HURT);
+
+    this.energy = 100;
+    this.x = 5000;
+    this.speed = 0.85 + Math.random() * 0.5;
     this.animation();
   }
 
   animation() {
     setInterval(() => {
-      // Walk animation
-      this.playAnimation(this.IMAGES_WALKING);
+      this.checkBottleHurt();
     }, 100);
+
+    setInterval(() => {
+      this.moveEndboss();
+    }, 1000 / 60);
+
+    setInterval(() => {
+      this.attackCharacter();
+    }, 10);
+  }
+
+  checkBottleHurt() {
+    if (this.bottleHurt && this.energy > 0) {
+      this.playAnimation(this.IMAGES_HURT);
+      setTimeout(() => {
+        this.bottleHurt = false;
+        this.attack = true;
+      }, 1000);
+    } else if (this.attack) {
+      this.playAnimation(this.IMAGES_ATTACK);
+      this.attackCharacter();
+    } else if (this.energy == 0) {
+      this.playAnimation(this.IMAGES_DEAD);
+      setTimeout(() => {
+        winGame();
+      }, 3000);
+    } else {
+      this.playAnimation(
+        this.energy < 40 ? this.IMAGES_ALERT : this.IMAGES_WALKING
+      );
+    }
+  }
+
+  moveEndboss() {
+    if (this.energy > 0 && !this.attack) {
+      if (this.count < 200) {
+        this.count++;
+        this.moveLeft();
+        this.otherDirection = false;
+      } else if (this.count < 400) {
+        this.count++;
+        this.moveRight();
+        this.otherDirection = true;
+      } else this.count = 0;
+    }
+  }
+
+  attackCharacter() {
+    if (this.attack) {
+      this.attackCount++;
+      this.speed = 3;
+      this.moveLeft();
+      this.otherDirection = false;
+      if (this.attackCount > 200) {
+        this.playAnimation(this.IMAGES_WALKING);
+        this.attackCount = 0;
+        this.count = 200;
+        this.attack = 0;
+      }
+    } else this.speed = 1.5;
   }
 }

@@ -15,12 +15,13 @@ class Bottle extends MovableObject {
     "assets/img/6_salsa_bottle/2_salsa_bottle_on_ground.png",
   ];
 
-  IMAGES_BOTTLES_IN_AIR = ["assets/img/6_salsa_bottle/salsa_bottle.png"];
+  // IMAGES_BOTTLES_IN_AIR = ["assets/img/6_salsa_bottle/salsa_bottle.png"];
 
   constructor() {
-    super().loadImages(this.IMAGES_BOTTLES_ON_GROUND);
-    this.loadImages(this.IMAGES_BOTTLES_IN_AIR);
-    this.IMAGES_BOTTLES_ON_GROUND.x = 200 + Math.random() * 3600;
+    super().loadImage("assets/img/6_salsa_bottle/1_salsa_bottle_on_ground.png");
+
+    this.loadImages(this.IMAGES_BOTTLES_ON_GROUND);
+    this.x = 200 + Math.random() * 3600;
     this.animation();
   }
 
@@ -30,9 +31,9 @@ class Bottle extends MovableObject {
     }, 500);
   }
 
-  getIndexBottles(obj) {
+  getIndexBottles(mo) {
     for (let i = 0; i < lvl1.bottles.length; i++) {
-      if (lvl1.bottles[i].x == obj.x) {
+      if (lvl1.bottles[i].x == mo.x) {
         return i;
       }
     }

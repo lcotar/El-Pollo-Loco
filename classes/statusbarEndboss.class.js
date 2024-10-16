@@ -1,4 +1,6 @@
 class StatusbarEndboss extends DrawableObject {
+  energy = 100;
+
   IMAGES_ENDBOSS = [
     "assets/img/7_statusbars/2_statusbar_endboss/orange/orange0.png",
     "assets/img/7_statusbars/2_statusbar_endboss/orange/orange20.png",
@@ -9,8 +11,7 @@ class StatusbarEndboss extends DrawableObject {
   ];
 
   constructor() {
-    super();
-    this.loadImages(this.IMAGES_ENDBOSS);
+    super().loadImages(this.IMAGES_ENDBOSS);
     this.x = 510;
     this.y = 0;
     this.width = 200;

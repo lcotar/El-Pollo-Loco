@@ -1,8 +1,11 @@
-/** The `class DrawableObject` is defining a JavaScript class that serves as a base class for objects
+/**
+ * The `class DrawableObject` is defining a JavaScript class that serves as a base class for objects
  * that can be drawn on a canvas. It contains properties such as `x`, `y`, `height`, `width`, `img`,
  * `imgCache`, and `currentImg` to manage the position, size, and images associated with the drawable
- * object. */
+ * object.
+ * */
 class DrawableObject {
+  otherDirection = false;
   x = 120;
   y = 280;
   height = 150;
@@ -28,15 +31,19 @@ class DrawableObject {
    * object on the canvas. It uses the canvas context `ctx` to draw the object's image at the specified
    * position (`x`, `y`) with the specified width and height (`width`, `height`). The method calls the
    * `drawImage` function of the canvas context `ctx` to draw the object's image at the specified
-   * coordinates on the canvas. */
+   * coordinates on the canvas.
+   * */
   draw(ctx) {
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
 
-  /** The `drawFrame(ctx)` method is responsible for drawing a frame around the movable object when it
+  /**
+   * The `drawFrame(ctx)` method is responsible for drawing a frame around the movable object when it
    * is being rendered on the canvas. It checks if the object is an instance of the `Character` or
    * `Chicken` class, and if so, it draws a blue rectangular frame around the object using the canvas
-   * context `ctx`. */
+   * context `ctx`.
+   * */
+  // muss vorabgabe gelöscht werden
   drawFrame(ctx) {
     if (this instanceof Character || this instanceof Chicken) {
       ctx.beginPath();
@@ -47,12 +54,14 @@ class DrawableObject {
     }
   }
 
-  /** The `loadImages(array)` method in the `MovableObject` class is responsible for loading multiple
+  /**
+   * The `loadImages(array)` method in the `MovableObject` class is responsible for loading multiple
    * images into the `imgCache` property of the object. It takes an array of image paths as a
    * parameter, iterates over each path in the array, creates a new `Image` object for each path, sets
    * the `src` property of the image object to the path, and then stores the image object in the
    * `imgCache` property with the path as the key. This allows the object to cache multiple images for
-   * later use in animations or rendering. */
+   * later use in animations or rendering.
+   * */
   loadImages(array) {
     array.forEach((path) => {
       let img = new Image();

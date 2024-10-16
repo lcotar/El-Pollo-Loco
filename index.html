@@ -8,28 +8,24 @@
 
     <script src="classes/drawableObject.class.js"></script>
     <script src="classes/movableObject.class.js"></script>
+    <script src="classes/endboss.class.js"></script>
+    <script src="classes/world.class.js"></script>
     <script src="classes/throwableObject.class.js"></script>
     <script src="classes/character.class.js"></script>
     <script src="classes/chicken.class.js"></script>
     <script src="classes/cloud.class.js"></script>
-
     <script src="classes/statusbar.class.js"></script>
     <script src="classes/statusbarCoin.class.js"></script>
     <script src="classes/statusbarBottles.class.js"></script>
     <script src="classes/statusbarEndboss.class.js"></script>
-
+    <script src="classes/backgroud.class.js"></script>
+    <script src="classes/audioCollection.class.js"></script>
     <script src="classes/coins.class.js"></script>
     <script src="classes/bottles.class.js"></script>
 
-    <script src="classes/backgroud.class.js"></script>
-
     <script src="classes/keyboard.class.js"></script>
-    <script src="classes/world.class.js"></script>
-    <script src="classes/endboss.class.js"></script>
-
     <script src="classes/lvl.class.js"></script>
     <script src="levels/lvl1.js"></script>
-
     <script src="scripts/game.js"></script>
 
     <title>El Pollo Loco</title>
@@ -37,6 +33,40 @@
   <body onload="init()">
     <h1>El Pollo Loco</h1>
 
-    <canvas id="canvas" width="720" height="480"> </canvas>
+    <div class="canvasBody">
+      <canvas id="canvas" width="720" height="480"> </canvas>
+      <div id="aviableBottles"></div>
+      <div id="btns" class="d-none">
+        <button id="quitGame" onclick="quitGame()"></button>
+        <button id="restart" onclick="restartGame()"></button>
+        <button id="mute" class="mute" onclick="toggleSoundImage()"></button>
+      </div>
+    </div>
+
+    <div id="steering">
+      <h2>Arrows Left/Right = <span>Walk</span></h2>
+      <br />
+      <h2>Spacebar = <span>Jump</span></h2>
+      <br />
+      <h2>D = <span>Throw Bottle</span></h2>
+    </div>
+
+    <!-- <div id="start">
+      <div class="button-container">
+        <img
+          id="startScreen"
+          src="/assets/img/11_icons/gameRules.png"
+          alt=""
+          onclick="showRules()"
+        />
+        <img
+          id="btnInfo"
+          src="/assets/img/11_icons/info.png"
+          alt=""
+          onclick="openImprint()"
+        />
+        <button id="startBTN" class="btn" onclick="startGame()">Start</button>
+      </div>
+    </div> -->
   </body>
 </html>
