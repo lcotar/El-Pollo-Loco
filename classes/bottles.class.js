@@ -22,7 +22,7 @@ class Bottle extends MovableObject {
 
     this.loadImages(this.IMAGES_BOTTLES_ON_GROUND);
     this.x = 200 + Math.random() * 3600;
-    this.applyGravity();
+
     this.animation();
   }
 
