@@ -41,7 +41,9 @@ class Chicken extends MovableObject {
 
   animation() {
     setInterval(() => {
-      this.moveLeft();
+      if (!this.isGetKilled) {
+        this.moveLeft();
+      }
     }, 1000 / 60);
 
     setInterval(() => {

@@ -98,8 +98,8 @@ function endGame() {
   gameStart = false;
   gameEnd = true;
   if (gameEnd) {
-    start.classList.add("d-none");
-    endscreen.classList.remove("d-none");
-    world.audios.pauseAudio();
+    /* start.classList.add("d-none");
+    endscreen.classList.remove("d-none"); */
+    // world.audios.pauseAudio();
   }
 }

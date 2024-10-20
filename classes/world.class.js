@@ -90,7 +90,7 @@ class World {
         this.coins++;
         // this.audios.coinSound.play();
         this.statusBarCoins.setCoin(this.coins);
-        this.lvl.coins.splice(index, 1);
+        this.lvl.coins.splice(index, 1); //
       }
     });
   }
@@ -157,7 +157,7 @@ class World {
   checkCollisionEnemyBottle(bottle) {
     this.lvl.enemies.forEach((enemy) => {
       if (bottle.isColliding(enemy)) {
-        this.audios.chicken_dead.play();
+        // this.audios.chickenDead.play();
         enemy.isGetKilled = true;
         this.throwableObjects.splice(-1, 1);
       }
