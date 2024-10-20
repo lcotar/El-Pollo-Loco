@@ -33,6 +33,11 @@ canvas {
   background-color: black;
 }
 
+.gameTasten {
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
 /* Smartphones Breite ------------- */
 @media only screen and (max-width: 720px) {
   canvas {
