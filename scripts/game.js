@@ -75,7 +75,7 @@ window.addEventListener("keyup", (e) => {
 });
 
 function startGame() {
-  let start = document.getElementById("start");
+  let start = document.getElementById("startBTN");
   let endscreen = document.getElementById("endscreen");
   gameStart = true;
   gameEnd = false;

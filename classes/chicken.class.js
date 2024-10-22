@@ -50,7 +50,9 @@ class Chicken extends MovableObject {
       if (this.energy && this.isGetKilled) {
         this.energy = false;
         this.isGetKilled = true;
-        this.loadImage("img/3_enemies_chicken/chicken_normal/2_dead/dead.png");
+        this.loadImage(
+          "assets/img/3_enemies_chicken/chicken_normal/2_dead/dead.png"
+        );
         setTimeout(() => {
           this.spliceChicken(this.getIndexChicken(this));
         }, 1000);
