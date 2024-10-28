@@ -209,7 +209,7 @@ class Character extends MovableObject {
   checkJump() {
     if (this.world.keyboard.SPACE && !this.isJump && !this.isAboveGround()) {
       this.isJump = true;
-      // this.world.audios.jumpSoundCharacter.play();
+      this.world.audios.jumpSoundCharacter.play();
       this.jump();
     }
 
@@ -234,14 +234,14 @@ class Character extends MovableObject {
       !this.world.keyboard.RIGHT &&
       !this.world.keyboard.LEFT
     ) {
-      // this.playAnimation(this.IMAGES_IDLE_PEPE);
+      this.playAnimation(this.IMAGES_IDLE_PEPE);
     } else if (timePassed > 5 && isMoving) {
       this.playAnimation(this.IMAGES_SLEEPING);
-      // this.world.audios.snoreSound.play();
+      this.world.audios.snoreSound.play();
       this.isSleep = true;
     } else {
       !this.isSleep;
-      // this.world.audios.snoreSound.pause();
+      this.world.audios.snoreSound.pause();
     }
   }
 }

@@ -8,6 +8,17 @@ class Endboss extends MovableObject {
   height = 400;
   width = 250;
   y = 50;
+  energy = 100;
+  bottleHurt = false;
+  attack = false;
+  attackCount = 0;
+  count = false;
+  offset = {
+    top: 64,
+    bottom: 16,
+    left: 48,
+    right: 48,
+  };
 
   IMAGES_WALKING = [
     "assets/img/4_enemie_boss_chicken/1_walk/G1.png",
@@ -79,6 +90,11 @@ class Endboss extends MovableObject {
     }, 10);
   }
 
+  /**
+   * `checkBottleHurt()` is a method in the `Endboss` class that checks the status of the `bottleHurt`
+   * property and the energy level of the endboss. Here's a breakdown of what `checkBottleHurt()` is
+   * doing:
+   * */
   checkBottleHurt() {
     if (this.bottleHurt && this.energy > 0) {
       this.playAnimation(this.IMAGES_HURT);

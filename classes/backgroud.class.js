@@ -9,15 +9,20 @@ class BackgroundObject extends MovableObject {
   height = 480;
   // backgroundSound = new Audio("assets/audio/background_music.mp4");
 
+  /**
+   * The `constructor(imagePath, x)` function is a special method in a class that gets called when a
+   * new instance of the class is created. In this case, the `BackgroundObject` class has a constructor
+   * that takes two parameters: `imagePath` and `x`.
+   * */
   constructor(imagePath, x) {
     super().loadImage(imagePath);
     this.x = x;
     this.y = 480 - this.height;
   }
 
-  /* animation() {
+  animation() {
     setInterval(() => {
       this.backgroundSound.play();
     });
-  } */
+  }
 }

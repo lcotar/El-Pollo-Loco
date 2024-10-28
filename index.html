@@ -6,6 +6,12 @@
 
     <link rel="stylesheet" href="style/style.css" />
 
+    <link
+      rel="shortcut icon"
+      href="assets/img/9_intro_outro_screens/start/startscreen_2.png"
+      type="image/x-icon"
+    />
+
     <script src="classes/drawableObject.class.js"></script>
     <script src="classes/movableObject.class.js"></script>
     <script src="classes/endboss.class.js"></script>
@@ -33,13 +39,16 @@
   <body onload="init()">
     <h1>El Pollo Loco</h1>
 
-    <div class="canvasBody">
+    <div class="canvasBody" id="content">
       <canvas id="canvas" width="720" height="480"> </canvas>
-      <div id="aviableBottles"></div>
-      <div id="btns" class="d-none">
+      <!-- <div>
+        <div id="canvasOverlay"></div>
+        <div id="BTNS" class="btns"></div>
+    </div> -->
+      <div id="BTNS" class="d-none">
         <button id="quitGame" onclick="quitGame()"></button>
         <button id="restart" onclick="restartGame()"></button>
-        <button id="mute" class="mute" onclick="toggleSoundImage()"></button>
+        <button id="mute" class="muteOff" onclick="toggleSoundImage()"></button>
       </div>
     </div>
 
@@ -52,35 +61,147 @@
       <h2>D = <span>Throw Bottle</span></h2>
     </div>
 
-    <!-- <div id="start">
-      <div class="BTNctn">
+    <!-- Start -->
+    <div id="start">
+      <div class="btnCTN">
         <img
-          id="btnRules"
-          src="/assets/img/11_icons/gameRules.png"
+          id="rules"
+          src="assets/img/11_icons/gameRules.png"
           alt=""
           onclick="showRules()"
         />
         <img
-          id="btnImpressum"
-          src="/assets/img/11_icons/info.png"
+          id="btnCTNInfo"
+          src="assets/img/11_icons/info.png"
           alt=""
           onclick="openImpressum()"
         />
-        <button id="startBTN" class="btn" onclick="startGame()">Start</button>
+        <button id="startBTN" class="BTN" onclick="startGame()">Start</button>
       </div>
     </div>
 
+    <!-- Rules -->
     <div id="gameRules" class="d-none">
-      <button class="closeGamerules" onclick="closeRules()">X</button>
-      <h2>The fastest way to win!</h2>
+      <img
+        src="assets/img/11_icons/x_dark_mode.png"
+        alt=""
+        class="closeGameRules"
+        onclick="cloesRules()"
+      />
+      <h2>The way how you could win!</h2>
       <p>
-        - To defeat the Small Chicken, you need <span>1</span> bottle or you can
-        jump on its head.
+        To defeat the Endboss, you need <b>5</b> bottles. If you have fewer than
+        <b>5</b> bottles, the game is <b>Over!</b>
       </p>
-      <p>
-        - To defeat the Boss, you need <span>5</span> bottles. If you have fewer
-        than <span>5</span> bottles, it's Game Over!
-      </p>
+    </div>
+
+    <!-- Impressum -->
+    <div id="Impressum" class="d-none">
+      <img
+        src="assets/img/11_icons/x_dark_mode.png"
+        alt=""
+        id="closeX"
+        class="closeImpr"
+        onclick="closeImpressum()"
+      />
+
+      <div class="impressum">
+        <h1>Impressum</h1>
+        <!-- Quelle: BrainBox Solutions -->
+        <div class="contentGeneratorOutput">
+          <b>Verantwortliche Instanz:</b>
+          <br />
+          Lea Cotar<br />
+          Letzacherstrasse 14<br />
+          8117 Fällanden<br />
+          Schweiz<br />
+          <strong>E-Mail:</strong> lea.cotar@gmx.ch <br /><br />
+          <strong>Haftungsausschluss</strong><br />
+          Der Autor übernimmt keine Gewähr für die Richtigkeit, Genauigkeit,
+          Aktualität, Zuverlässigkeit und Vollständigkeit der Informationen.
+          <br />
+          Haftungsansprüche gegen den Autor wegen Schäden materieller oder
+          immaterieller Art, die aus dem Zugriff oder der Nutzung bzw.
+          Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der
+          Verbindung oder durch technische Störungen entstanden sind, werden
+          ausgeschlossen.
+
+          <br /><br />
+          Alle Angebote sind freibleibend. Der Autor behält es sich ausdrücklich
+          vor, Teile der Seiten oder das gesamte Angebot ohne gesonderte
+          Ankündigung zu verändern, zu ergänzen, zu löschen oder die
+          Veröffentlichung zeitweise oder endgültig einzustellen.<br /><br />
+          <strong>Haftungsausschluss für Inhalte und Links</strong><br />
+          Verweise und Links auf Webseiten Dritter liegen ausserhalb unseres
+          Verantwortungsbereichs. Es wird jegliche Verantwortung für solche
+          Webseiten abgelehnt. Der Zugriff und die Nutzung solcher Webseiten
+          erfolgen auf eigene Gefahr des jeweiligen Nutzers.<br /><br />
+          <strong>Urheberrechtserklärung</strong><br />
+          Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder
+          anderen Dateien auf dieser Website, gehören ausschliesslich Lea Cotar
+          oder den speziell genannten Rechteinhabern. Für die Reproduktion
+          jeglicher Elemente ist die schriftliche Zustimmung des
+          Urheberrechtsträgers im Voraus einzuholen.<br /><br />
+          <strong>Quelle:</strong>
+          <a
+            style="color: inherit; text-decoration: none"
+            href="https://brainbox.swiss/"
+            >BrainBox Solutions</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Endscreen -->
+    <div id="endScreen" class="d-none">
+      <div class="btnEndscreenCTN">
+        <button class="btns" onclick="restartGame()">Restart Game</button>
+        <button class="btns" onclick="quittingGame()">Back to Menue</button>
+      </div>
+    </div>
+
+    <!-- Winning Screen -->
+    <div id="winningScreen" class="d-none">
+      <img src="assets/img/9_intro_outro_screens/win/won_2.png" alt="" />
+      <button class="btns" onclick="restartGame()">Restart Game</button>
+      <button class="btns" onclick="quittingGame()">Back to Menue</button>
+    </div>
+
+    <!-- Turning Mobile Phone
+    <div></div> -->
+
+    <!-- Mobile Buttons -->
+    <!-- <div id="steeringBTNMobile" class="d-none">
+      Left Side
+      <div class="steeringLeftSide">
+        <img
+          src="assets/img/11_icons/arrow_backwards.png"
+          alt=""
+          id="BTNLeft"
+          onmousedown="return false"
+        />
+        <img
+          src="assets/img/11_icons/arrow_forwards.png"
+          alt=""
+          id="BTNRight"
+          onmousedown="return false"
+        />
+      </div> -->
+    <!-- Right Side
+      <div class="steeringRightSide">
+        <img
+          src="assets/img/11_icons/arrow_forwards.png"
+          alt=""
+          id="BTNThrow"
+          onmousedown="return false"
+        />
+        <img
+          src="assets/img/11_icons/arrow_up.png"
+          alt=""
+          id="BTNJump"
+          onmousedown="return false"
+        />
+      </div> 
     </div> -->
   </body>
 </html>

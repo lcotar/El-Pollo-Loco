@@ -1,21 +1,25 @@
 let canvas;
 let world;
-let audio;
+let audios;
 let keyboard = new Keyboard();
 
 let ctx;
-/* gameStart = true;
+gameStart = true;
 gameEnd = false;
-let backgroundAudio = new Audio("assets/audio/DramaticMusicSound.mp3");
+let backgroundAudio = new Audio(
+  "assets/audio/Walking_through_grass_(long).mp3"
+);
 let winSound = new Audio("assets/audio/LevelComplete.mp3");
-let loseSound = new Audio("assets/audio/MarioDeath.mp3"); */
+let loseSound = new Audio("assets/audio/MarioDeath.mp3");
 
 function init() {
   canvas = document.getElementById("canvas");
 
   initLvl();
-  world = new World(canvas, keyboard, audio);
-  // audio = new AudioCollection();
+
+  world = new World(canvas, keyboard, audios);
+  audios = new AudioCollections();
+
   // handleOrientation();
 
   // character.src = "./assets/img/2_character_pepe/2_walk/W-21.png";
@@ -79,12 +83,14 @@ function startGame() {
   let endscreen = document.getElementById("endscreen");
   gameStart = true;
   gameEnd = false;
+
   if (gameStart) {
     start.classList.add("d-none");
     endscreen.classList.add("d-none");
   }
+
   world = null;
-  initLevel();
+  initLvl();
   init();
   backgroundAudio.play();
   backgroundAudio.volume = 0.25;
@@ -92,14 +98,53 @@ function startGame() {
   document.getElementById("buttons").classList.remove("d-none");
 }
 
-function endGame() {
+function showGameRules() {
+  document.getElementById("gameRules").classList.remove("d-none");
+}
+
+function closeRules() {
+  document.getElementById("gameRules").classList.add("d-none");
+}
+
+/* function addButtons() {
+  console.log("addButtons");
+  document.getElementById("BTNS").innerHTML = `
+  <button class="btns" id="btnPlay" onclick="startGame()"></button>
+  <button class="btns" id="btnHelp"></button>
+  <button class="btns" id="btnFullscreen" onclick="fullscreenOn()"></button>`;
+}
+
+function setStartScreen() {
+  addButtons();
+  let overlay = document.getElementById("canvasOverlay");
+  overlay.classList.add("start");
+}
+
+function setGameScreen() {
+  let overlay = document.getElementById("canvasOverlay");
+  overlay.removeAttribute("class");
+} */
+
+/* function endGame() {
   let start = document.getElementById("start");
   let endscreen = document.getElementById("endscreen");
   gameStart = false;
   gameEnd = true;
   if (gameEnd) {
-    /* start.classList.add("d-none");
-    endscreen.classList.remove("d-none"); */
-    // world.audios.pauseAudio();
+    start.classList.add("d-none");
+    endscreen.classList.remove("d-none");
+    world.audios.pauseAudio();
   }
 }
+
+function winGame() {
+  let win = document.getElementById("winScreen");
+  gameWin = true;
+  if (gameWin) {
+    win.classList.remove("d-none");
+    winSound.play();
+  }
+
+  clearAllIntervals();
+  document.getElementById("btns").classList.add("d-none");
+} */

@@ -98,7 +98,7 @@ class World {
   forEachBottles() {
     this.lvl.bottles.forEach((bottles, index) => {
       if (this.character.isColliding(bottles) && this.bottles < 5) {
-        //  this.audios.pickBottle.play();
+        // this.audios.pickBottle.play();
         this.bottles++;
         this.statusBarBottle.setBottle(this.bottles);
         this.bottle = true;
