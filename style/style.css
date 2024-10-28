@@ -52,20 +52,22 @@ canvas {
   flex-direction: column;
   gap: 80px;
   position: absolute;
-  min-height: 480px;
+  height: 100%;
   width: 100%;
-  max-width: 720px;
 }
 
-/* #content {
+#content {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  max-width: 720px;
+  min-height: 480px;
 }
 
-#canvasOverlay {
+/* #canvasOverlay {
   position: absolute;
   width: 100%;
   height: 100%;

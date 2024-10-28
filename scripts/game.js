@@ -80,12 +80,16 @@ window.addEventListener("keyup", (e) => {
 
 function startGame() {
   let start = document.getElementById("startBTN");
+  let impr = document.getElementById("btnCTNInfo");
+  let gameRule = document.getElementById("rules");
   let endscreen = document.getElementById("endscreen");
   gameStart = true;
   gameEnd = false;
 
   if (gameStart) {
     start.classList.add("d-none");
+    impr.classList.add("d-none");
+    gameRule.classList.add("d-none");
     endscreen.classList.add("d-none");
   }
 

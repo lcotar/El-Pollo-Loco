@@ -40,6 +40,24 @@
     <h1>El Pollo Loco</h1>
 
     <div class="canvasBody" id="content">
+      <!-- Start -->
+      <div id="start">
+        <div class="btnCTN">
+          <img
+            id="rules"
+            src="assets/img/11_icons/gameRules.png"
+            alt=""
+            onclick="showRules()"
+          />
+          <img
+            id="btnCTNInfo"
+            src="assets/img/11_icons/info.png"
+            alt=""
+            onclick="openImpressum()"
+          />
+          <button id="startBTN" class="BTN" onclick="startGame()">Start</button>
+        </div>
+      </div>
       <canvas id="canvas" width="720" height="480"> </canvas>
       <!-- <div>
         <div id="canvasOverlay"></div>
@@ -59,25 +77,6 @@
       <h2>Spacebar = <span>Jump</span></h2>
       <br />
       <h2>D = <span>Throw Bottle</span></h2>
-    </div>
-
-    <!-- Start -->
-    <div id="start">
-      <div class="btnCTN">
-        <img
-          id="rules"
-          src="assets/img/11_icons/gameRules.png"
-          alt=""
-          onclick="showRules()"
-        />
-        <img
-          id="btnCTNInfo"
-          src="assets/img/11_icons/info.png"
-          alt=""
-          onclick="openImpressum()"
-        />
-        <button id="startBTN" class="BTN" onclick="startGame()">Start</button>
-      </div>
     </div>
 
     <!-- Rules -->
