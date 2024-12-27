@@ -77,6 +77,12 @@ class World {
     }, 150);
   }
 
+  start() {
+    this.lvl.enemies.forEach((enemy) => {
+      enemy.animation();
+    });
+  }
+
   checkCollisions() {
     this.forEachEnemy();
     this.forEachBottles();
