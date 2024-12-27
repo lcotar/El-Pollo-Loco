@@ -4,10 +4,10 @@ class AudioCollections {
   backgroundAudio = new Audio("../assets/audio/DramaticMusicSound.mp3");
   snoreSound = new Audio("assets/audio/sound_effect.mp3");
   jumpSoundCharacter = new Audio("assets/audio/jumpSound.mp3");
-  coinSound = new Audio("assets/audio/coin.mp3");
+  coinSound = new Audio("../assets/audio/coinSound.mp3");
   hurtSound = new Audio("assets/audio/sound_effect.mp3"); // hurting sound
-  pickBottleSound = new Audio("assets/audio/collect_item.mp3"); // pick Bottles
-  chickenDeadSound = new Audio("assets/audio/chicken_dead.mp3"); // chicken dead
+  pickBottleSound = new Audio("../assets/audio/collect_item.mp3"); // pick Bottles
+  chickenDeadSound = new Audio("../assets/audio/ChickenScreamNoise.mp3"); // chicken dead
   // backgroundAudio = new Audio("audio/background-music.mp3"); // Zeile löschen
   winSound = new Audio("assets/audio/LevelComplete.mp3"); // .mp3 Datei verwenden
   loseSound = new Audio("assets/audio/MarioDeath.mp3"); // .mp3 Datei verwenden

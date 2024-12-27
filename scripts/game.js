@@ -130,7 +130,8 @@ function endGame() {
   if (gameEnd) {
     start.classList.add("d-none");
     endscreen.classList.remove("d-none");
-    world.audios.pausingAudio();
+    // world.audios.pausingAudio();
+    clearAllIntervals();
   }
 }
 
@@ -185,12 +186,25 @@ function quittingGame() {
   window.open("index.html", "_self");
 }
 
+/* function toggleSoundImage() {
+  if (AudioCollections.muted == false) {
+    AudioCollections.muted = true;
+  } else {
+    AudioCollections.muted = false;
+  }
+} */
+
+/**
+ * The `function openImpressum()` is responsible for displaying the "Impressum" section on the webpage.
+ * When this function is called, it removes the "d-none" class from the element with the id
+ * "Impressum", making it visible to the user. This allows users to view the Impressum section of the webpage.
+ * */
 function openImpressum() {
-  document.getElementById("btnCTNInfo").classList.remove("d-none");
+  document.getElementById("Impressum").classList.remove("d-none");
 }
 
 function closeImpressum() {
-  document.getElementById("closeX").classList.add("d-none");
+  document.getElementById("Impressum").classList.add("d-none");
 }
 
 function showRules() {

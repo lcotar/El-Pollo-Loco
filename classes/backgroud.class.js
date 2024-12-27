@@ -20,6 +20,13 @@ class BackgroundObject extends MovableObject {
     this.y = 480 - this.height;
   }
 
+  /**
+   * The `animation` method in the `BackgroundObject` class is setting up a setInterval function that
+   * plays the `backgroundSound` audio at regular intervals. However, there is a potential issue in the
+   * code as the `backgroundSound` variable is commented out, so it may not work as intended. If you
+   * uncomment the `backgroundSound` variable and initialize it with an audio file path, the
+   * `animation` method will continuously play the background sound at the specified intervals.
+   * */
   animation() {
     setInterval(() => {
       this.backgroundSound.play();
