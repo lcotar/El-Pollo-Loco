@@ -4,8 +4,8 @@ let audios;
 let keyboard = new Keyboard();
 let intervalIDs = [];
 let ctx;
-gameStart = true;
-gameEnd = false;
+// gameStart = true;
+// gameEnd = false;
 
 let backgroundAudio = new Audio(
   "assets/audio/Walking_through_grass_(long).mp3"
@@ -173,9 +173,9 @@ function startGame() {
     endscreen.classList.add("d-none");
   }
 
-  world = null;
+  // world = null;
   initLvl();
-  init();
+  // init();
 
   world.start();
   backgroundAudio.play();
@@ -235,6 +235,7 @@ function winGame() {
   if (gameWin) {
     win.classList.remove("d-none");
     winSound.play();
+    backgroundAudio.pause();
   }
 
   clearAllIntervals();
