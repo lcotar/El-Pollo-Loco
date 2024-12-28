@@ -11,8 +11,8 @@ let backgroundAudio = new Audio(
   "assets/audio/Walking_through_grass_(long).mp3"
 );
 
-let winSound = new Audio("../assets/audio/LevelComplete.mp3");
-let loseSound = new Audio("../assets/audio/MarioDeath.mp3");
+let winSound = new Audio("assets/audio/LevelComplete.mp3");
+let loseSound = new Audio("assets/audio/MarioDeath.mp3");
 
 function init() {
   canvas = document.getElementById("canvas");

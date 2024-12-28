@@ -137,7 +137,7 @@ class World {
       if (this.character.isColliding(enemy)) {
         if (this.character.speedY < 0 && this.character.isAboveGround()) {
           enemy.isGetKilled = true;
-          this.audios.chickenDead.play();
+          this.audios.chickenDeadSound.play();
         } else if (!enemy.isGetKilled) {
           this.audios.hurtSound.play();
           this.character.hit();
@@ -206,7 +206,7 @@ class World {
   checkCollisionEnemyBottle(bottle) {
     this.lvl.enemies.forEach((enemy) => {
       if (bottle.isColliding(enemy)) {
-        this.audios.chickenDead.play();
+        this.audios.chickenDeadSound.play();
         enemy.isGetKilled = true;
         this.throwableObjects.splice(-1, 1);
       }
