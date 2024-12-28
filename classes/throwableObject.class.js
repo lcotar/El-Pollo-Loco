@@ -70,7 +70,7 @@ class ThrowableObjects extends MovableObject {
   triggerSplash() {
     this.loadImages(this.IMAGES_SPLASH);
     this.playAnimation(this.IMAGES_SPLASH);
-    // world.audios.bottleSplash.play();
+    world.audios.bottleSplash.play();
     this.x -= 8;
   }
 

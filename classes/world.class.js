@@ -94,7 +94,7 @@ class World {
     this.lvl.coins.forEach((coins, index) => {
       if (this.character.isColliding(coins)) {
         this.coins++;
-        // this.audios.coinSound.play();
+        this.audios.coinSound.play();
         this.statusBarCoins.setCoin(this.coins);
         this.lvl.coins.splice(index, 1); //
       }
@@ -104,7 +104,7 @@ class World {
   forEachBottles() {
     this.lvl.bottles.forEach((bottles, index) => {
       if (this.character.isColliding(bottles) && this.bottles < 5) {
-        // this.audios.pickBottle.play();
+        this.audios.pickBottleSound.play();
         this.bottles++;
         this.statusBarBottle.setBottle(this.bottles);
         this.bottle = true;
@@ -118,9 +118,9 @@ class World {
       if (this.character.isColliding(enemy)) {
         if (this.character.speedY < 0 && this.character.isAboveGround()) {
           enemy.isGetKilled = true;
-          // this.audios.chickenDead.play();
+          this.audios.chickenDead.play();
         } else if (!enemy.isGetKilled) {
-          // this.audios.hurtSound.play();
+          this.audios.hurtSound.play();
           this.character.hit();
           this.statusBar.setPercentage(this.character.energy);
         }
@@ -130,7 +130,7 @@ class World {
 
   forEndboss() {
     if (this.character.isColliding(this.boss)) {
-      // this.audios.hurtSound.play();
+      this.audios.hurtSound.play();
       this.character.hit();
       this.statusBar.setPercentage(this.character.energy);
     }
@@ -163,7 +163,7 @@ class World {
   checkCollisionEnemyBottle(bottle) {
     this.lvl.enemies.forEach((enemy) => {
       if (bottle.isColliding(enemy)) {
-        // this.audios.chickenDead.play();
+        this.audios.chickenDead.play();
         enemy.isGetKilled = true;
         this.throwableObjects.splice(-1, 1);
       }

@@ -28,16 +28,25 @@ class Chicken extends MovableObject {
 
   // chickenSound = new Audio("assets/audio/chicken.mp4");
 
+  /**
+   * The `constructor` in the `Chicken` class is a special method that is automatically called when a
+   * new instance of the `Chicken` class is created. In this case, the `constructor` method is
+   * responsible for initializing various properties of the `Chicken` object.
+   * */
   constructor() {
     super().loadImage(
       "assets/img/3_enemies_chicken/chicken_normal/1_walk/1_w.png"
     );
 
     this.loadImages(this.IMAGES_WALKING);
-    this.x = 200 + Math.random() * 500;
+    this.x = 200 + Math.random() * 3500;
     this.speed = 0.15 + Math.random() * 0.25;
+    this.animation();
   }
 
+  /**
+   * The `animation` method in the `Chicken` class is setting up two intervals.
+   * */
   animation() {
     setInterval(() => {
       if (!this.isGetKilled) {
@@ -59,10 +68,21 @@ class Chicken extends MovableObject {
     }, 200);
   }
 
+  /**
+   * The `spliceChicken` method in the `Chicken` class is removing the chicken object from the
+   * `enemies` array in the `lvl1` object. It takes an index `i` as a parameter and uses the `splice`
+   * method to remove the element at that index from the `enemies` array. This method effectively
+   * removes the chicken object from the list of enemies in the game.
+   * */
   spliceChicken(i) {
     lvl1.enemies.splice(i, 1);
   }
 
+  /**
+   * The `getIndexChicken` method in the `Chicken` class is a helper function that iterates through the
+   * `enemies` array in the `lvl1` object to find the index of a specific chicken object based on its
+   * `x` coordinate.
+   * */
   getIndexChicken(obj) {
     for (let i = 0; i < lvl1.enemies.length; i++) {
       if (lvl1.enemies[i].x == obj.x) {

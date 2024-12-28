@@ -241,7 +241,7 @@ class Character extends MovableObject {
       this.isSleep = true;
     } else {
       !this.isSleep;
-      // this.world.audios.snoreSound.pause();
+      this.world.audios.snoreSound.pause();
     }
   }
 }

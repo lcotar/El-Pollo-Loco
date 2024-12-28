@@ -154,7 +154,7 @@ class MovableObject extends DrawableObject {
    * */
   jump() {
     if (!this.isAboveGround()) {
-      // this.world.audios.jumpSound.play();
+      this.world.audios.jumpSoundCharacter.play();
       this.speedY = 30;
     }
   }
