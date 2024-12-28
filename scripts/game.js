@@ -139,6 +139,11 @@ function pressBTNS() {
   });
 }
 
+/**
+ * The `handleRotation()` function in the provided JavaScript code is responsible for determining the
+ * orientation of the device (landscape or portrait) and setting up event listeners accordingly to
+ * handle keyboard input or touch events based on the orientation.
+ * */
 function handleRotation() {
   if (window.matchMedia("(orientation: landscape)").matches) {
     // keyboardSteering();
@@ -173,9 +178,9 @@ function startGame() {
     endscreen.classList.add("d-none");
   }
 
-  // world = null;
+  world = null;
   initLvl();
-  // init();
+  init();
 
   world.start();
   backgroundAudio.play();

@@ -83,6 +83,11 @@ class World {
     });
   }
 
+  /**
+   * The above code is a comment block in JavaScript. It appears to be a placeholder for a function called `checkCollisions()`.
+   * The function is likely intended to check for collisions between objects in a game or simulation.
+   * However, the actual implementation of the `checkCollisions()` function is not provided in the code snippet.
+   * */
   checkCollisions() {
     this.forEachEnemy();
     this.forEachBottles();
@@ -90,6 +95,9 @@ class World {
     this.forEndboss();
   }
 
+  /**
+   * The above code is a comment block in JavaScript. It appears to be a placeholder for a function called `forEachCoins()`.
+   * */
   forEachCoins() {
     this.lvl.coins.forEach((coins, index) => {
       if (this.character.isColliding(coins)) {
@@ -101,6 +109,12 @@ class World {
     });
   }
 
+  /**
+   * The `forEachBottles()` method in the `World` class is iterating over the array of bottles present
+   * in the current level (`lvl`) of the game world. For each bottle, it checks if the character is
+   * colliding with that bottle and if the number of bottles collected by the character is less than 5.
+   * If a collision is detected and the character has collected less than 5 bottles, the method performs the following actions:
+   * */
   forEachBottles() {
     this.lvl.bottles.forEach((bottles, index) => {
       if (this.character.isColliding(bottles) && this.bottles < 5) {
@@ -113,6 +127,11 @@ class World {
     });
   }
 
+  /**
+   * The `forEachEnemy()` method in the `World` class is iterating over the enemies present in the current level (`lvl`) of the game world.
+   * For each enemy, it checks if the character is colliding with that enemy.
+   * If a collision is detected, it performs the following actions:
+   * */
   forEachEnemy() {
     this.lvl.enemies.forEach((enemy) => {
       if (this.character.isColliding(enemy)) {
@@ -128,6 +147,12 @@ class World {
     });
   }
 
+  /**
+   * The `forEndboss()` method in the `World` class is checking if the character is colliding with the
+   * boss entity in the game world. If a collision is detected, it plays a hurt sound, decreases the
+   * character's energy, and updates the status bar to reflect the character's energy level.
+   * This method handles the interaction between the character and the boss entity during gameplay.
+   * */
   forEndboss() {
     if (this.character.isColliding(this.boss)) {
       this.audios.hurtSound.play();
@@ -136,6 +161,14 @@ class World {
     }
   }
 
+  /**
+   * The `checkThrowObjects()` method in the `World` class is responsible for checking if the character
+   * is attempting to throw a bottle in the game. It checks if the "D" key is pressed and if the character has collected at least one bottle.
+   * If these conditions are met, a new `ThrowableObjects`
+   * instance (representing a thrown bottle) is created at a specific position relative to the character.
+   * The method then adds this thrown bottle to the `throwableObjects` array, decreases the count of available bottles,
+   * updates the bottle count in the status bar, and sets up collision detection for the thrown bottle with enemies and the end boss.
+   * */
   checkThrowObjects() {
     if (this.keyboard.D && this.bottles > 0) {
       let bottle = new ThrowableObjects(
@@ -154,12 +187,22 @@ class World {
     }
   }
 
+  /**
+   * The `bottlesForEndboss()` method in the `World` class is checking if the boss entity in the game
+   * world still has energy remaining and if the number of bottles collected by the character is less than 5.
+   * If both conditions are met, it triggers the `endGame()` function. This method essentially
+   * serves as a check to determine if the character has collected enough bottles to defeat the boss entity in the game.
+   * */
   bottlesForEndboss() {
     if (this.boss.energy > 0 && this.lvl.bottles < 5) {
       endGame();
     }
   }
 
+  /**
+   * The `checkCollisionEnemyBottle(bottle)` method in the `World` class is responsible for checking if
+   * a thrown bottle (represented by the `bottle` parameter) collides with any enemies in the game world.
+   * */
   checkCollisionEnemyBottle(bottle) {
     this.lvl.enemies.forEach((enemy) => {
       if (bottle.isColliding(enemy)) {
@@ -170,6 +213,12 @@ class World {
     });
   }
 
+  /**
+   * The `checkCollisionEndbossBottle(bottle)` method in the `World` class is responsible for checking
+   * if a thrown bottle (represented by the `bottle` parameter) collides with the boss entity in the
+   * game world. If a collision is detected between the thrown bottle and the boss entity, the method,
+   * performs the following actions:
+   * */
   checkCollisionEndbossBottle(bottle) {
     if (this.boss.isColliding(bottle)) {
       this.throwableObjects.splice(-1, 1);
@@ -179,19 +228,6 @@ class World {
       this.statusBarBoss.setBoss(this.boss.energy);
     }
   }
-
-  // muss gelöscht werden
-  /* checkCollisions() {
-    this.lvl.enemies.forEach((enemy) => {
-      if (this.character.isColliding(enemy)) {
-        this.character.hit();
-        this.statusBar.setPercentage(this.character.energy);
-        this.statusBarBottle.setBottle(this.bottle);
-        this.statusBarCoins.setCoin(this.coins);
-        this.statusBarBoss.setBoss(this.boss.energy);
-      }
-    });
-  } */
 
   /**
    * The draw method in the World class is responsible for clearing the canvas, adding the
@@ -213,6 +249,10 @@ class World {
     });
   }
 
+  /**
+   * The above code is a comment block in JavaScript. It is not executable code. It appears to be a
+   * placeholder for a function call `statusbarsAddToMap()`.
+   * */
   statusbarsAddToMap() {
     this.addToMap(this.statusBar);
     this.addToMap(this.statusBarCoins);
@@ -222,6 +262,10 @@ class World {
     this.ctx.translate(-this.cameraX, 0);
   }
 
+  /**
+   * The above code is a comment block in JavaScript. It appears to be calling a function named
+   * `objectsAddToMap()`. However, the actual implementation of the function is not provided in the code snippet.
+   * */
   objectsAddToMap() {
     this.addObjectsToMap(this.lvl.backgroundObjects);
     this.addObjectsToMap(this.lvl.clouds);
@@ -231,17 +275,6 @@ class World {
     this.addObjectsToMap(this.lvl.coins);
     this.addObjectsToMap(this.lvl.bottles);
   }
-
-  /* availableBottles() {
-    let availableBottles = document.getElementById("availableBottles");
-
-    availableBottles.innerHTML += `
-      <div>
-      Aviable Bottles =
-        ${this.lvl.bottles.length}
-       </div> 
-    `;
-  } */
 
   /**
    * The addObjectsToMap method in the World class is responsible for iterating over an array of
