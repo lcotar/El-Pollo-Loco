@@ -269,16 +269,6 @@ canvas {
   text-align: center;
 }
 
-.icons {
-  background-color: transparent !important;
-  position: absolute;
-  top: 25px;
-}
-
-.icons img {
-  height: 25px;
-}
-
 #closeX {
   position: sticky;
   top: 0px;
@@ -325,7 +315,7 @@ canvas {
   position: absolute;
   background-color: #fc6e22;
   overflow: hidden;
-  background-image: url("assets/img/9_intro_outro_screens/game_over/game/ over!.png");
+  /* background-image: url("assets/img/9_intro_outro_screens/game_over/game/ over!.png"); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -364,6 +354,63 @@ canvas {
   cursor: pointer;
 }
 
+#BTNS {
+  position: absolute;
+  top: 2.5%;
+  padding: 5px 10px;
+  display: flex;
+  gap: 20px;
+  right: 40%;
+  background-color: transparent;
+}
+
+#quitGame {
+  background-image: url("../assets/img/11_icons/quitGame.png");
+  background-position: center;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+#restart {
+  background-image: url("../assets/img/11_icons/restartGame.png");
+  background-position: center;
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+.muteOn {
+  background-image: url("../assets/img/11_icons/soundOff.png");
+  background-position: center;
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+.muteOff {
+  background-image: url("../assets/img/11_icons/soundOn.png");
+  background-position: center;
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+#quitGame,
+#restart,
+#mute {
+  border: none;
+  width: 35px;
+  height: 40px;
+  outline: none;
+}
+
+#quitGame:hover,
+#restart:hover,
+#mute:hover {
+  cursor: pointer;
+}
+
 #steeringBTNMobile {
   display: flex;
   justify-content: space-between;
@@ -391,14 +438,6 @@ canvas {
   padding-right: 20px;
   align-items: center;
   padding-bottom: 5px;
-}
-
-.muteOn {
-  background-image: url("../img/10_buttons/sound-off.png");
-  background-position: center;
-  background-size: 30px;
-  background-repeat: no-repeat;
-  background-color: transparent;
 }
 
 /* Smartphones Breite ------------- */

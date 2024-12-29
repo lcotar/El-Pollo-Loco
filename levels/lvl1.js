@@ -163,7 +163,19 @@ function initLvl() {
         719 * 7
       ),
     ],
-    [new Chicken(), new Chicken(), new Chicken(), new Chicken(), new Chicken()],
+    [
+      new Chicken(),
+      new Chicken(),
+      new Chicken(),
+      new Chicken(),
+      new Chicken(),
+      new ChickenSmall(),
+      new ChickenSmall(),
+      new ChickenSmall(),
+      new ChickenSmall(),
+      new ChickenSmall(),
+      new ChickenSmall(),
+    ],
 
     [new Cloud(), new Cloud(), new Cloud(), new Cloud(), new Cloud()], // Adding clouds
 

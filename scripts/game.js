@@ -2,10 +2,10 @@ let canvas;
 let world;
 let audios;
 let keyboard = new Keyboard();
-let intervalIDs = [];
+// let intervalIDs = []; // evt. auskommentieren
 let ctx;
-// gameStart = true;
-// gameEnd = false;
+gameStart = true;
+gameEnd = false;
 
 let backgroundAudio = new Audio(
   "assets/audio/Walking_through_grass_(long).mp3"
@@ -178,9 +178,9 @@ function startGame() {
     endscreen.classList.add("d-none");
   }
 
-  world = null;
+  // world = null; // Zeile löschen?
   initLvl();
-  init();
+  // init(); // Zeile löschen?
 
   world.start();
   backgroundAudio.play();
