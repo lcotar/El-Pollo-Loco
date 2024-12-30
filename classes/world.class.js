@@ -139,7 +139,7 @@ class World {
           enemy.isGetKilled = true;
           this.audios.chickenDeadSound.play();
         } else if (!enemy.isGetKilled) {
-          // this.audios.hurtSound.play();
+          this.audios.hurtSound.play();
           this.character.hit();
           this.statusBar.setPercentage(this.character.energy);
         }

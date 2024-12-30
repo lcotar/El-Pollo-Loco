@@ -15,8 +15,11 @@ class Statusbar extends DrawableObject {
 
   percentage = 100;
 
-  /** The `constructor()` in the `Statusbar` class is a special method that is automatically called when
-   *  a new instance of the `Statusbar` class is created. In this specific constructor: */
+  /**
+   * The `constructor()` in the `Statusbar` class is a special method that is automatically called when
+   * a new instance of the `Statusbar` class is created.
+   * In this specific constructor:
+   * */
   constructor() {
     super();
     this.loadImages(this.IMAGES_HEALTH);
@@ -27,8 +30,10 @@ class Statusbar extends DrawableObject {
     this.setPercentage(100);
   }
 
-  /** The `setPercentage(percentage)` method in the `Statusbar` class is responsible for updating the
-   *  status bar's visual representation based on the given percentage value. */
+  /**
+   * The `setPercentage(percentage)` method in the `Statusbar` class is responsible for updating the
+   * status bar's visual representation based on the given percentage value.
+   * */
   setPercentage(percentage) {
     this.percentage = percentage;
     let path = this.IMAGES_HEALTH[this.resolveIMGIndex()];

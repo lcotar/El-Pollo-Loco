@@ -156,23 +156,25 @@ class Character extends MovableObject {
     }, 50);*/
   }
 
-  /* The `ifIsHurt()` method in the `Character` class is checking if the character is hurt. If the
- character is hurt, it triggers the `playAnimation()` method with the `IMAGES_HURT` images to
- display the hurt animation. Additionally, it sets the `endHurt` property to `true`, indicating that
- the hurt state has ended. */
+  /**
+   * The `ifIsHurt()` method in the `Character` class is checking if the character is hurt. If the character is hurt,
+   * it triggers the `playAnimation()` method with the `IMAGES_HURT` images to display the hurt animation.
+   * Additionally, it sets the `endHurt` property to `true`, indicating that the hurt state has ended.
+   * */
   ifIsHurt() {
     if (this.isHurt()) this.playAnimation(this.IMAGES_HURT);
     this.endHurt = true;
   }
 
-  /* The `walkingFunctionInterval()` method in the `Character` class is responsible for handling the
-  character's movement based on keyboard input. It checks if the right or left arrow keys are
-  pressed to move the character right or left respectively. If the character is within the level
-  boundaries and not at the end boss position, it moves the character in the corresponding
-  direction. Additionally, it sets the `otherDirection` property to control the character's
-  orientation. If the space key is pressed and the character is not already in a jump state, it
-  triggers the character to jump and sets the `isJump` and `endHurt` properties accordingly.
-  Finally, it adjusts the camera position based on the character's movement. */
+  /**
+   * The `walkingFunctionInterval()` method in the `Character` class is responsible for handling the character's movement based on keyboard input.
+   * It checks if the right or left arrow keys are pressed to move the character right or left respectively.
+   * If the character is within the level boundaries and not at the end boss position, it moves the character in the corresponding direction.
+   * Additionally, it sets the `otherDirection` property to control the character's orientation.
+   * If the space key is pressed and the character is not already in a jump state, it triggers the character to jump
+   * and sets the `isJump` and `endHurt` properties accordingly.
+   * Finally, it adjusts the camera position based on the character's movement.
+   * */
   walkingFunctionInterval() {
     let endBossPosition = this.world.boss.x;
     let isMoving = false;
@@ -198,12 +200,12 @@ class Character extends MovableObject {
     this.world.cameraX = -this.x + 100;
   }
 
-  /* The `deadFunctionInterval()` method in the `Character` class is setting up an interval that checks
-  if the character is dead. If the character is dead, it triggers the `playAnimation()` method with
-  the `IMAGES_DEAD` images to display the dead animation. Additionally, it includes a `setTimeout()`
-  function that calls the `endGame()` function after 1 second when the character is dead. This
-  function is responsible for handling the animation and game logic related to the character's death
-  state. */
+  /**
+   * The `deadFunctionInterval()` method in the `Character` class is setting up an interval that checks if the character is dead.
+   * If the character is dead, it triggers the `playAnimation()` method with the `IMAGES_DEAD` images to display the dead animation.
+   * Additionally, it includes a `setTimeout()` function that calls the `endGame()` function after 1 second when the character is dead.
+   * This function is responsible for handling the animation and game logic related to the character's death state.
+   * */
   deadFunctionInterval() {
     setInterval(() => {
       if (this.isDead()) {
@@ -215,12 +217,13 @@ class Character extends MovableObject {
     }, 4000);
   }
 
-  /* The `checkMovement()` method in the `Character` class is responsible for checking the character's
-  movement based on keyboard input. If the right or left arrow keys are pressed, indicating movement
-  in those directions, it triggers the `playAnimation()` method with the `IMAGES_WALKING` images to
-  display the walking animation. Additionally, it sets the `isJump` property to `false` to indicate
-  that the character is not in a jump state. If there is no movement input detected, it calls the
-  `stopAnimation()` method to handle stopping the animation based on the character's state. */
+  /**
+   * The `checkMovement()` method in the `Character` class is responsible for checking the character's movement based on keyboard input.
+   * If the right or left arrow keys are pressed, indicating movement in those directions, it triggers the `playAnimation()` method
+   * with the `IMAGES_WALKING` images to display the walking animation.
+   * Additionally, it sets the `isJump` property to `false` to indicate that the character is not in a jump state.
+   * If there is no movement input detected, it calls the `stopAnimation()` method to handle stopping the animation based on the character's state.
+   * */
   checkMovement() {
     if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
       this.playAnimation(this.IMAGES_WALKING);
@@ -230,8 +233,10 @@ class Character extends MovableObject {
     }
   }
 
-  /* The `checkJump()` method in the `Character` class is responsible for handling the character's
-  jumping behavior. Here's a breakdown of what it does: */
+  /**
+   * The `checkJump()` method in the `Character` class is responsible for handling the character's jumping behavior.
+   * Here's a breakdown of what it does:
+   * */
   checkJump() {
     if (this.world.keyboard.SPACE && !this.isJump && !this.isAboveGround()) {
       this.isJump = true;
@@ -248,8 +253,10 @@ class Character extends MovableObject {
     }
   }
 
-  /* The `stopAnimation()` method in the `Character` class is responsible for managing the character's
-  animation when there is no movement input detected. Here's a breakdown of what it does: */
+  /**
+   * The `stopAnimation()` method in the `Character` class is responsible for managing the character's animation when there is no movement input detected.
+   * Here's a breakdown of what it does:
+   * */
   stopAnimation() {
     this.lastAction = new Date().getTime();
     let timePassed = new Date().getTime() - this.lastAction;

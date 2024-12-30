@@ -41,6 +41,12 @@ class StatusbarBottles extends DrawableObject {
     this.img = this.imgCache[path];
   }
 
+  /**
+   * Determines the index of the bottle based on its value.
+   * Returns the appropriate index (0 to 5) based on the current value of the `bottle` property.
+   * If the `bottle` value exceeds 5, it returns 5.
+   * Used to identify the bottle's index in a collection or array.
+   */
   bottleIndex() {
     if (this.bottle == 0) {
       return 0;

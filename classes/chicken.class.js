@@ -80,8 +80,7 @@ class Chicken extends MovableObject {
 
   /**
    * The getIndexChicken method in the Chicken class is a helper function that iterates through the
-   * enemies array in the lvl1 object to find the index of a specific chicken object based on its
-   * x coordinate.
+   * enemies array in the lvl1 object to find the index of a specific chicken object based on its x coordinate.
    * */
   getIndexChicken(obj) {
     for (let i = 0; i < lvl1.enemies.length; i++) {

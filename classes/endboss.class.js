@@ -62,8 +62,10 @@ class Endboss extends MovableObject {
     "assets/img/4_enemie_boss_chicken/5_dead/G26.png",
   ];
 
-  /* The `constructor()` method in the `Endboss` class is initializing a new instance of the `Endboss`
-  class. Here's a breakdown of what the `constructor()` method is doing: */
+  /**
+   * The `constructor()` method in the `Endboss` class is initializing a new instance of the `Endboss` class.
+   * Here's a breakdown of what the `constructor()` method is doing:
+   * */
   constructor() {
     super().loadImage(this.IMAGES_WALKING[0]);
     this.loadImages(this.IMAGES_WALKING);
@@ -121,8 +123,10 @@ class Endboss extends MovableObject {
     }
   }
 
-  /* The `moveEndboss()` method in the `Endboss` class is responsible for controlling the movement
-  behavior of the endboss character. Here's a breakdown of what `moveEndboss()` is doing: */
+  /**
+   * The `moveEndboss()` method in the `Endboss` class is responsible for controlling the movement behavior of the endboss character.
+   * Here's a breakdown of what `moveEndboss()` is doing:
+   * */
   moveEndboss() {
     if (this.energy > 0 && !this.attack) {
       if (this.count < 200) {
@@ -137,8 +141,10 @@ class Endboss extends MovableObject {
     }
   }
 
-  /* The `attackCharacter()` method in the `Endboss` class is responsible for handling the attack
-  behavior of the endboss character. Here's a breakdown of what `attackCharacter()` is doing: */
+  /**
+   * The `attackCharacter()` method in the `Endboss` class is responsible for handling the attack behavior of the endboss character.
+   * Here's a breakdown of what `attackCharacter()` is doing:
+   * */
   attackCharacter() {
     if (this.attack) {
       this.attackCount++;

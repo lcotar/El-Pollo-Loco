@@ -1,3 +1,10 @@
+/**
+ * Represents a Bottle object that extends the MovableObject class.
+ * Handles bottle properties, animations, and interactions.
+ * Provides methods for loading images and identifying bottle indices.
+ * Animates bottles on the ground at regular intervals.
+ * Includes offset and size properties for collision detection.
+ */
 class Bottle extends MovableObject {
   y = 360;
   bottles = [];

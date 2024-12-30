@@ -14,6 +14,12 @@ let backgroundAudio = new Audio(
 let winSound = new Audio("assets/audio/LevelComplete.mp3");
 let loseSound = new Audio("assets/audio/MarioDeath.mp3");
 
+/**
+ * Initializes the game environment and objects.
+ * Sets up the canvas, initializes the level, audio collection, and world.
+ * Handles character rotation and draws the character image on the canvas (commented out code).
+ * Prepares the game for interaction by loading necessary elements.
+ */
 function init() {
   canvas = document.getElementById("canvas");
 
@@ -27,6 +33,12 @@ function init() {
   // ctx.drawImage(character, 20, 20, 50, 150);
 }
 
+/**
+ * Listens for keyboard keydown and keyup events to manage the state of pressed keys.
+ * Updates the `keyboard` object with boolean values (`true` when a key is pressed, `false` when released).
+ * Supports movement (left, right, up, down), jumping (space), and other actions (e.g., D key).
+ * Ensures that the character or action responds to key presses and stops when the keys are released.
+ */
 function pressKeyboard() {
   window.addEventListener("keydown", (e) => {
     if (e.keyCode == 39) {
@@ -81,6 +93,12 @@ function pressKeyboard() {
   });
 }
 
+/**
+ * Listens for touch events on mobile button elements and updates the keyboard state.
+ * Tracks touchstart and touchend events for each button (left, right, jump, throw) to control the corresponding movement or action.
+ * Prevents default behavior for touch events to ensure the game functions correctly.
+ * Updates the `keyboard` object with `true` when the button is pressed and `false` when released.
+ */
 function pressBTNS() {
   document.getElementById("btnLeft").addEventListener("touchstart", (e) => {
     if (e.cancelable) {
@@ -178,9 +196,8 @@ function startGame() {
     endscreen.classList.add("d-none");
   }
 
-  world = null; // Zeile löschen?
-  initLvl();
-  init(); // Zeile löschen?
+  world = null;
+  init();
 
   world.start();
   backgroundAudio.play();
