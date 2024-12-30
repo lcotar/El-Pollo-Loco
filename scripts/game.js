@@ -6,6 +6,7 @@ let keyboard = new Keyboard();
 let ctx;
 gameStart = true;
 gameEnd = false;
+let isMuted = false;
 
 let backgroundAudio = new Audio(
   "assets/audio/Walking_through_grass_(long).mp3"
@@ -321,17 +322,27 @@ function quittingGame() {
  * If the mute icon has the `muteOn` class, it sets the volume of background audio, win sound, and lose sound to 0,
  * effectively muting the game sounds.
  * */
+
 function toggleSoundImage() {
   let mute = document.getElementById("mute");
-  mute.classList.toggle("muteOn");
 
-  if (mute.classList[1]) {
+  // Wenn der Sound stummgeschaltet ist, dann bleibt er stumm
+  if (!isMuted) {
+    isMuted = true; // Sound wird stummgeschaltet
+    mute.classList.remove("muteOff");
+    mute.classList.add("muteOn");
+
     backgroundAudio.volume = 0;
     world.audios.pausingAudio();
-    backgroundAudio.volume = 0;
     winSound.volume = 0;
     loseSound.volume = 0;
-  } else if (mute.classList[0]) {
+  }
+  // Wenn der Sound nicht stumm ist, dann bleibt er laut
+  else {
+    isMuted = false; // Sound wird laut
+    mute.classList.remove("muteOn");
+    mute.classList.add("muteOff");
+
     backgroundAudio.volume = 1;
     world.audios.playAudio();
     backgroundAudio.volume = 0.25;
