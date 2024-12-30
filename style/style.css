@@ -67,27 +67,6 @@ canvas {
   min-height: 480px;
 }
 
-/* #canvasOverlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  top: 0;
-  left: 0;
-
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.start {
-  background: url("/assets/img/9_intro_outro_screens/start/startscreen_2.png");
-  background-size: contain !important; 
-} */
-
 .gameTasten {
   background-color: rgba(0, 0, 0, 0.5);
   text-align: center;
@@ -315,7 +294,6 @@ canvas {
   position: absolute;
   background-color: #fc6e22;
   overflow: hidden;
-  /* background-image: url("assets/img/9_intro_outro_screens/game_over/game/ over!.png"); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -330,7 +308,6 @@ canvas {
   left: 0;
   right: 0;
   font-size: 50px;
-  /* color: black; */
   padding: 50px;
   width: 100%;
   display: flex;
@@ -339,7 +316,9 @@ canvas {
 
 #landscape span {
   display: flex;
+  flex-direction: column;
   gap: 10px;
+  text-wrap: balance;
 }
 
 #landscape img {
@@ -366,30 +345,24 @@ canvas {
 
 #quitGame {
   background-image: url("../assets/img/11_icons/quitGame.png");
-  background-position: center;
-  background-size: 40px;
-  background-repeat: no-repeat;
-  background-color: transparent;
 }
 
 #restart {
   background-image: url("../assets/img/11_icons/restartGame.png");
-  background-position: center;
-  background-size: 30px;
-  background-repeat: no-repeat;
-  background-color: transparent;
 }
 
 .muteOn {
   background-image: url("../assets/img/11_icons/soundOff.png");
-  background-position: center;
-  background-size: 30px;
-  background-repeat: no-repeat;
-  background-color: transparent;
 }
 
 .muteOff {
   background-image: url("../assets/img/11_icons/soundOn.png");
+}
+
+#quitGame,
+#restart,
+.muteOff,
+.muteOn {
   background-position: center;
   background-size: 30px;
   background-repeat: no-repeat;
@@ -440,16 +413,36 @@ canvas {
   padding-bottom: 5px;
 }
 
-/* Smartphones Breite ------------- */
-@media only screen and (max-width: 720px) {
-  canvas {
-    width: 100%;
-  }
+#mobileBTNS {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 10px;
+  border-radius: 15px;
 }
 
-/* Smartphones Breite ------------- */
-@media only screen and (max-height: 480px) {
-  canvas {
-    height: 100vh;
-  }
+#mobileBTNS img {
+  width: 15%;
+  cursor: pointer;
+}
+
+.steeringLeftSide {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  width: 50%;
+  padding-left: 20px;
+}
+
+.steeringRightSide {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  width: 50%;
+  padding-right: 20px;
+  align-items: center;
+  padding-bottom: 5px;
 }

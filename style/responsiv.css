@@ -1,0 +1,93 @@
+/* Smartphones Breite ------------- */
+@media only screen and (max-width: 720px) {
+  canvas {
+    width: 100%;
+  }
+
+  #start {
+    display: block;
+    width: 100%;
+  }
+}
+
+/* Smartphones Breite ------------- */
+@media only screen and (max-height: 480px) {
+  canvas {
+    height: 100vh;
+  }
+}
+
+/* Maximale Breite bis zu 500px */
+@media only screen and (max-width: 500px) and (orientation: landscape) {
+  #landscape {
+    display: block !important;
+  }
+
+  #start {
+    background-position: center;
+  }
+
+  #endscreen {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .btns {
+    padding: 0 40px;
+  }
+
+  #BTNS {
+    top: 0;
+  }
+}
+
+/* Maximale Breite kleiner 500px */
+@media only screen and (width >=500px) {
+  #landscape {
+    display: none !important;
+  }
+
+  #start {
+    background-position: center;
+  }
+}
+
+@media (pointer: coarse) and (orientation: landscape) {
+  #mobileBTNS {
+    display: flex !important;
+  }
+
+  .btnEndscreenCTN {
+    justify-content: space-around;
+    gap: 60px;
+  }
+
+  .btns {
+    padding: 5px 40px;
+  }
+
+  #endScreen {
+    padding: unset;
+  }
+
+  #Impressum {
+    padding: 60px;
+  }
+
+  #rules {
+    top: 15%;
+  }
+
+  #steering {
+    display: none;
+  }
+
+  #btnCTNInfo {
+    top: 15%;
+  }
+
+  #startBTN {
+    margin-top: 15px;
+    padding: 5px 40px;
+  }
+}

@@ -178,9 +178,9 @@ function startGame() {
     endscreen.classList.add("d-none");
   }
 
-  // world = null; // Zeile löschen?
+  world = null; // Zeile löschen?
   initLvl();
-  // init(); // Zeile löschen?
+  init(); // Zeile löschen?
 
   world.start();
   backgroundAudio.play();

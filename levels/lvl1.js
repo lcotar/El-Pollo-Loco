@@ -1,5 +1,12 @@
 let lvl1;
 
+/**
+ * The `initLvl()` function is initializing a level in a game. It creates a new instance of a level
+ * object (`lvl`) with various background objects, chickens, clouds, coins, and bottles placed at
+ * different positions within the level. The background objects consist of different layers with images,
+ * and the other game elements like chickens, clouds, coins, and bottles are also added to the level.
+ * This function sets up the initial state of the level for the game to start.
+ * */
 function initLvl() {
   lvl1 = new lvl(
     [

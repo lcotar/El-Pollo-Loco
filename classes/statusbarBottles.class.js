@@ -1,3 +1,8 @@
+/**
+ * The line `class StatusbarBottles extends DrawableObject` is creating a new class named
+ * `StatusbarBottles` that extends (inherits from) another class named `DrawableObject`.
+ * This means that the `StatusbarBottles` class will inherit all the properties and methods from the `DrawableObject` class.
+ * */
 class StatusbarBottles extends DrawableObject {
   IMAGES_BOTTLES = [
     "assets/img/7_statusbars/1_statusbar/3_statusbar_bottle/orange/0.png",
@@ -10,6 +15,12 @@ class StatusbarBottles extends DrawableObject {
 
   bottle = 0;
 
+  /**
+   * The `constructor()` function in the `StatusbarBottles` class is initializing the object when it is created.
+   * Inside the constructor, the `loadImages()` method is called to load the images specified in the `IMAGES_BOTTLES` array.
+   * The initial position (x, y) and dimensions (width, height) of the object are set,
+   * and the `setBottle()` method is called with an initial value of 0 to set the initial bottle image.
+   * */
   constructor() {
     super();
     this.loadImages(this.IMAGES_BOTTLES);
@@ -20,6 +31,10 @@ class StatusbarBottles extends DrawableObject {
     this.setBottle(0);
   }
 
+  /**
+   * The `setBottle(bottle)` method in the `StatusbarBottles` class is setting the current bottle value
+   * of the object to the specified value passed as an argument.
+   * */
   setBottle(bottle) {
     this.bottle = bottle;
     let path = this.IMAGES_BOTTLES[this.bottleIndex()];

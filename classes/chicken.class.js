@@ -1,8 +1,8 @@
 /**
- * The `class Chicken extends MovableObject` statement is creating a new class named `Chicken` that
- * extends the `MovableObject` class. This means that the `Chicken` class inherits all the properties
- * and methods from the `MovableObject` class, allowing it to reuse and extend the functionality
- * defined in the `MovableObject` class. This is a common practice in object-oriented programming to
+ * The class Chicken extends MovableObject statement is creating a new class named Chicken that
+ * extends the MovableObject class. This means that the Chicken class inherits all the properties
+ * and methods from the MovableObject class, allowing it to reuse and extend the functionality
+ * defined in the MovableObject class. This is a common practice in object-oriented programming to
  * promote code reusability and maintainability.
  * */
 class Chicken extends MovableObject {
@@ -29,9 +29,9 @@ class Chicken extends MovableObject {
   // chickenSound = new Audio("assets/audio/chicken.mp4");
 
   /**
-   * The `constructor` in the `Chicken` class is a special method that is automatically called when a
-   * new instance of the `Chicken` class is created. In this case, the `constructor` method is
-   * responsible for initializing various properties of the `Chicken` object.
+   * The constructor in the Chicken class is a special method that is automatically called when a
+   * new instance of the Chicken class is created. In this case, the constructor method is
+   * responsible for initializing various properties of the Chicken object.
    * */
   constructor() {
     super().loadImage(
@@ -45,7 +45,7 @@ class Chicken extends MovableObject {
   }
 
   /**
-   * The `animation` method in the `Chicken` class is setting up two intervals.
+   * The animation method in the Chicken class is setting up two intervals.
    * */
   animation() {
     setInterval(() => {
@@ -69,9 +69,9 @@ class Chicken extends MovableObject {
   }
 
   /**
-   * The `spliceChicken` method in the `Chicken` class is removing the chicken object from the
-   * `enemies` array in the `lvl1` object. It takes an index `i` as a parameter and uses the `splice`
-   * method to remove the element at that index from the `enemies` array. This method effectively
+   * The spliceChicken method in the Chicken class is removing the chicken object from the
+   * enemies array in the lvl1 object. It takes an index i as a parameter and uses the splice
+   * method to remove the element at that index from the enemies array. This method effectively
    * removes the chicken object from the list of enemies in the game.
    * */
   spliceChicken(i) {
@@ -79,9 +79,9 @@ class Chicken extends MovableObject {
   }
 
   /**
-   * The `getIndexChicken` method in the `Chicken` class is a helper function that iterates through the
-   * `enemies` array in the `lvl1` object to find the index of a specific chicken object based on its
-   * `x` coordinate.
+   * The getIndexChicken method in the Chicken class is a helper function that iterates through the
+   * enemies array in the lvl1 object to find the index of a specific chicken object based on its
+   * x coordinate.
    * */
   getIndexChicken(obj) {
     for (let i = 0; i < lvl1.enemies.length; i++) {
