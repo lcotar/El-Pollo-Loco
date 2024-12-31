@@ -39,7 +39,7 @@
     <title>El Pollo Loco</title>
   </head>
   <body onload="init()">
-    <h1>El Pollo Loco</h1>
+    <h1 class="title">El Pollo Loco</h1>
 
     <div class="canvasBody" id="content">
       <!-- Start -->
@@ -60,11 +60,8 @@
           <button id="startBTN" class="BTN" onclick="startGame()">Start</button>
         </div>
       </div>
+
       <canvas id="canvas" width="720" height="480"> </canvas>
-      <!-- <div>
-        <div id="canvasOverlay"></div>
-        <div id="BTNS" class="btns"></div>
-    </div> -->
       <div id="BTNS" class="d-none icons">
         <button id="quitGame" onclick="quitGame()">
           <!-- <img src="assets/img/11_icons/quitGame.png" alt="" /> -->
@@ -72,10 +69,15 @@
         <button id="restart" onclick="restartGame()">
           <!-- <img src="assets/img/11_icons/restartGame.png" alt="" /> -->
         </button>
-        <button id="mute" class="muteOff" onclick="toggleSoundImage()">
+        <button id="mute" class="muteOff" onclick="toggleSoundImage(event)">
           <!-- <img src="../assets/img/11_icons/lautsprecher_laut.png" alt="" /> -->
         </button>
       </div>
+
+      <!-- <div>
+        <div id="canvasOverlay"></div>
+        <div id="BTNS" class="btns"></div>
+    </div> -->
 
       <!-- Endscreen -->
       <div id="endScreen" class="d-none">

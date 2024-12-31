@@ -1,16 +1,17 @@
-/** The line `class Statusbar extends DrawableObject` is creating a new class named `Statusbar` that
- * extends the `DrawableObject` class. This means that the `Statusbar` class inherits all the
- * properties and methods from the `DrawableObject` class, allowing it to reuse and build upon the
- * functionality defined in the `DrawableObject` class. This is a common practice in object-oriented
- * programming to promote code reusability and maintainability. */
+/**
+ * The line `class Statusbar extends DrawableObject` is creating a new class named `Statusbar` that extends the `DrawableObject` class.
+ * This means that the `Statusbar` class inherits all the properties and methods from the `DrawableObject` class,
+ * allowing it to reuse and build upon the functionality defined in the `DrawableObject` class.
+ * This is a common practice in object-oriented programming to promote code reusability and maintainability.
+ * */
 class Statusbar extends DrawableObject {
   IMAGES_HEALTH = [
-    "assets/img/7_statusbars/1_statusbar/2_statusbar_health/blue/0.png",
-    "assets/img/7_statusbars/1_statusbar/2_statusbar_health/blue/20.png",
-    "assets/img/7_statusbars/1_statusbar/2_statusbar_health/blue/40.png",
-    "assets/img/7_statusbars/1_statusbar/2_statusbar_health/blue/60.png",
-    "assets/img/7_statusbars/1_statusbar/2_statusbar_health/blue/80.png",
-    "assets/img/7_statusbars/1_statusbar/2_statusbar_health/blue/100.png",
+    "./assets/img/7_statusbars/1_statusbar/2_statusbar_health/blue/0.png",
+    "./assets/img/7_statusbars/1_statusbar/2_statusbar_health/blue/20.png",
+    "./assets/img/7_statusbars/1_statusbar/2_statusbar_health/blue/40.png",
+    "./assets/img/7_statusbars/1_statusbar/2_statusbar_health/blue/60.png",
+    "./assets/img/7_statusbars/1_statusbar/2_statusbar_health/blue/80.png",
+    "./assets/img/7_statusbars/1_statusbar/2_statusbar_health/blue/100.png",
   ];
 
   percentage = 100;

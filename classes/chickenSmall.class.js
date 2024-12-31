@@ -19,12 +19,14 @@ class ChickenSmall extends MovableObject {
   };
 
   IMAGES_SMALL_CHICKEN_WALKING = [
-    "assets/img/3_enemies_chicken/chicken_small/1_walk/1_w.png",
-    "assets/img/3_enemies_chicken/chicken_small/1_walk/2_w.png",
-    "assets/img/3_enemies_chicken/chicken_small/1_walk/3_w.png",
+    "./assets/img/3_enemies_chicken/chicken_small/1_walk/1_w.png",
+    "./assets/img/3_enemies_chicken/chicken_small/1_walk/2_w.png",
+    "./assets/img/3_enemies_chicken/chicken_small/1_walk/3_w.png",
   ];
 
-  IMAGES_DEAD = ["assets/img/3_enemies_chicken/chicken_small/2_dead/dead.png"];
+  IMAGES_DEAD = [
+    "./assets/img/3_enemies_chicken/chicken_small/2_dead/dead.png",
+  ];
 
   /**
    * Initializes a new instance of the ChickenSmall class.
@@ -34,7 +36,7 @@ class ChickenSmall extends MovableObject {
    */
   constructor() {
     super().loadImage(
-      "assets/img/3_enemies_chicken/chicken_small/1_walk/1_w.png"
+      "./assets/img/3_enemies_chicken/chicken_small/1_walk/1_w.png"
     );
     this.loadImages(this.IMAGES_SMALL_CHICKEN_WALKING);
     this.x = 200 + Math.random() * 3500;
@@ -60,7 +62,7 @@ class ChickenSmall extends MovableObject {
       if (this.energy && this.isGetKilled) {
         this.energy = false;
         this.loadImage(
-          "assets/img/3_enemies_chicken/chicken_small/2_dead/dead.png"
+          "./assets/img/3_enemies_chicken/chicken_small/2_dead/dead.png"
         );
         setTimeout(() => {
           this.spliceChicken(this.getIndexChicken(this));

@@ -4,16 +4,16 @@ let audios;
 let keyboard = new Keyboard();
 // let intervalIDs = []; // evt. auskommentieren
 let ctx;
-gameStart = true;
-gameEnd = false;
+// gameStart = true;
+// gameEnd = false;
 let isMuted = false;
 
 let backgroundAudio = new Audio(
-  "assets/audio/Walking_through_grass_(long).mp3"
+  "./assets/audio/Walking_through_grass_(long).mp3"
 );
 
-let winSound = new Audio("assets/audio/LevelComplete.mp3");
-let loseSound = new Audio("assets/audio/MarioDeath.mp3");
+let winSound = new Audio("./assets/audio/LevelComplete.mp3");
+let loseSound = new Audio("./assets/audio/MarioDeath.mp3");
 
 /**
  * Initializes the game environment and objects.
@@ -23,10 +23,6 @@ let loseSound = new Audio("assets/audio/MarioDeath.mp3");
  */
 function init() {
   canvas = document.getElementById("canvas");
-
-  initLvl();
-  audios = new AudioCollections();
-  world = new World(canvas, keyboard, audios);
 
   handleRotation();
 
@@ -95,80 +91,24 @@ function pressKeyboard() {
 }
 
 /**
- * Listens for touch events on mobile button elements and updates the keyboard state.
- * Tracks touchstart and touchend events for each button (left, right, jump, throw) to control the corresponding movement or action.
- * Prevents default behavior for touch events to ensure the game functions correctly.
- * Updates the `keyboard` object with `true` when the button is pressed and `false` when released.
- */
-function pressBTNS() {
-  document.getElementById("btnLeft").addEventListener("touchstart", (e) => {
-    if (e.cancelable) {
-      e.preventDefault();
-    }
-    keyboard.LEFT = true;
-  });
-
-  document.getElementById("btnLeft").addEventListener("touchend", (e) => {
-    if (e.cancelable) {
-      e.preventDefault();
-    }
-    keyboard.LEFT = false;
-  });
-
-  document.getElementById("btnRight").addEventListener("touchstart", (e) => {
-    if (e.cancelable) {
-      e.preventDefault();
-    }
-    keyboard.RIGHT = true;
-  });
-
-  document.getElementById("btnRight").addEventListener("touchend", (e) => {
-    if (e.cancelable) {
-      e.preventDefault();
-    }
-    keyboard.RIGHT = false;
-  });
-
-  document.getElementById("btnThrow").addEventListener("touchstart", (e) => {
-    if (e.cancelable) {
-      e.preventDefault();
-    }
-    keyboard.D = true;
-  });
-
-  document.getElementById("btnThrow").addEventListener("touchend", (e) => {
-    if (e.cancelable) {
-      e.preventDefault();
-    }
-    keyboard.D = false;
-  });
-
-  document.getElementById("btnJump").addEventListener("touchstart", (e) => {
-    if (e.cancelable) {
-      e.preventDefault();
-    }
-    keyboard.SPACE = true;
-  });
-
-  document.getElementById("btnJump").addEventListener("touchend", (e) => {
-    if (e.cancelable) {
-      e.preventDefault();
-    }
-    keyboard.SPACE = false;
-  });
-}
-
-/**
  * The `handleRotation()` function in the provided JavaScript code is responsible for determining the
  * orientation of the device (landscape or portrait) and setting up event listeners accordingly to
  * handle keyboard input or touch events based on the orientation.
  * */
-function handleRotation() {
+/* function handleRotation() {
   if (window.matchMedia("(orientation: landscape)").matches) {
     // keyboardSteering();
     pressKeyboard();
   } else if (window.matchMedia("(orientation: portrait)").matches) {
     pressBTNS();
+  }
+} */
+
+function handleRotation() {
+  if (window.matchMedia("(pointer: coarse)").matches) {
+    pressBTNS();
+  } else {
+    pressKeyboard();
   }
 }
 
@@ -177,9 +117,12 @@ window.addEventListener("orientationchange", handleRotation);
 handleRotation();
 
 /**
- * The `startGame()` function is responsible for starting the game. When this function is called, it
- * performs the following actions:
- * */
+ * Starts the game and sets the initial game state.
+ * Hides the start button, game introduction, and other UI elements.
+ * Updates global variables to indicate the game has started and not ended.
+ * Calls the function to initialize and start the game world.
+ * Ensures a clean transition to the gameplay by managing UI visibility.
+ */
 function startGame() {
   let start = document.getElementById("startBTN");
   let startGame = document.getElementById("start");
@@ -197,8 +140,21 @@ function startGame() {
     endscreen.classList.add("d-none");
   }
 
+  startWorld(); // Hier wird die neue Funktion aufgerufen
+}
+
+/**
+ * Initializes and starts the game world.
+ * Sets up the level, audio collections, and game world instance.
+ * Plays the background audio with a specified volume.
+ * Makes the control buttons visible by removing a CSS class.
+ * Ensures all necessary game audio is activated.
+ */
+function startWorld() {
   world = null;
-  init();
+  initLvl();
+  audios = new AudioCollections();
+  world = new World(canvas, keyboard, audios);
 
   world.start();
   backgroundAudio.play();
@@ -289,7 +245,7 @@ function restartGame() {
   init();
   backgroundAudio.play();
   backgroundAudio.volume = 0.25;
-  world.audios.playAudio();
+  // world.audios.playAudio();
   world.start();
 }
 
@@ -325,24 +281,15 @@ function quittingGame() {
 
 function toggleSoundImage() {
   let mute = document.getElementById("mute");
+  mute.classList.toggle("muteOn");
 
-  // Wenn der Sound stummgeschaltet ist, dann bleibt er stumm
-  if (!isMuted) {
-    isMuted = true; // Sound wird stummgeschaltet
-    mute.classList.remove("muteOff");
-    mute.classList.add("muteOn");
-
+  if (mute.classList[1]) {
     backgroundAudio.volume = 0;
     world.audios.pausingAudio();
+    backgroundAudio.volume = 0;
     winSound.volume = 0;
     loseSound.volume = 0;
-  }
-  // Wenn der Sound nicht stumm ist, dann bleibt er laut
-  else {
-    isMuted = false; // Sound wird laut
-    mute.classList.remove("muteOn");
-    mute.classList.add("muteOff");
-
+  } else if (mute.classList[0]) {
     backgroundAudio.volume = 1;
     world.audios.playAudio();
     backgroundAudio.volume = 0.25;
@@ -388,4 +335,68 @@ function showRules() {
 function cloesRules() {
   document.getElementById("rules").classList.remove("d-none");
   document.getElementById("gameRules").classList.add("d-none");
+}
+
+/**
+ * Listens for touch events on mobile button elements and updates the keyboard state.
+ * Tracks touchstart and touchend events for each button (left, right, jump, throw) to control the corresponding movement or action.
+ * Prevents default behavior for touch events to ensure the game functions correctly.
+ * Updates the `keyboard` object with `true` when the button is pressed and `false` when released.
+ */
+function pressBTNS() {
+  document.getElementById("btnLeft").addEventListener("touchstart", (e) => {
+    if (e.cancelable) {
+      e.preventDefault();
+    }
+    keyboard.LEFT = true;
+  });
+
+  document.getElementById("btnLeft").addEventListener("touchend", (e) => {
+    if (e.cancelable) {
+      e.preventDefault();
+    }
+    keyboard.LEFT = false;
+  });
+
+  document.getElementById("btnRight").addEventListener("touchstart", (e) => {
+    if (e.cancelable) {
+      e.preventDefault();
+    }
+    keyboard.RIGHT = true;
+  });
+
+  document.getElementById("btnRight").addEventListener("touchend", (e) => {
+    if (e.cancelable) {
+      e.preventDefault();
+    }
+    keyboard.RIGHT = false;
+  });
+
+  document.getElementById("btnThrow").addEventListener("touchstart", (e) => {
+    if (e.cancelable) {
+      e.preventDefault();
+    }
+    keyboard.D = true;
+  });
+
+  document.getElementById("btnThrow").addEventListener("touchend", (e) => {
+    if (e.cancelable) {
+      e.preventDefault();
+    }
+    keyboard.D = false;
+  });
+
+  document.getElementById("btnJump").addEventListener("touchstart", (e) => {
+    if (e.cancelable) {
+      e.preventDefault();
+    }
+    keyboard.SPACE = true;
+  });
+
+  document.getElementById("btnJump").addEventListener("touchend", (e) => {
+    if (e.cancelable) {
+      e.preventDefault();
+    }
+    keyboard.SPACE = false;
+  });
 }

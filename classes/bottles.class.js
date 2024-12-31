@@ -18,8 +18,8 @@ class Bottle extends MovableObject {
   };
 
   IMAGES_BOTTLES_ON_GROUND = [
-    "assets/img/6_salsa_bottle/1_salsa_bottle_on_ground.png",
-    "assets/img/6_salsa_bottle/2_salsa_bottle_on_ground.png",
+    "./assets/img/6_salsa_bottle/1_salsa_bottle_on_ground.png",
+    "./assets/img/6_salsa_bottle/2_salsa_bottle_on_ground.png",
   ];
 
   // IMAGES_BOTTLES_IN_AIR = ["assets/img/6_salsa_bottle/salsa_bottle.png"];
@@ -29,7 +29,9 @@ class Bottle extends MovableObject {
    * when a new `Bottle` object is created. Here's a breakdown of what it is doing:
    * */
   constructor() {
-    super().loadImage("assets/img/6_salsa_bottle/1_salsa_bottle_on_ground.png");
+    super().loadImage(
+      "./assets/img/6_salsa_bottle/1_salsa_bottle_on_ground.png"
+    );
 
     this.loadImages(this.IMAGES_BOTTLES_ON_GROUND);
     this.x = 200 + Math.random() * 3600;

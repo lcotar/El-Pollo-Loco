@@ -16,8 +16,8 @@ class Coin extends MovableObject {
   };
 
   IMAGES_COINS = [
-    "assets/img/8_coin/coin_1.png",
-    "assets/img/8_coin/coin_2.png",
+    "./assets/img/8_coin/coin_1.png",
+    "./assets/img/8_coin/coin_2.png",
   ];
 
   /**
@@ -27,7 +27,7 @@ class Coin extends MovableObject {
    * Starts the animation to create a rotating coin effect.
    */
   constructor() {
-    super().loadImage("assets/img/8_coin/coin_1.png");
+    super().loadImage("./assets/img/8_coin/coin_1.png");
     this.loadImages(this.IMAGES_COINS);
     this.x = 200 + Math.random() * 3600;
     this.y = 0 + Math.random() * 250;

@@ -1,24 +1,37 @@
+@media only screen and (max-width: 932px) {
+  .title {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .title {
+    text-align: center;
+  }
+}
+
 /* Smartphones Breite ------------- */
 @media only screen and (max-width: 720px) {
   canvas {
     width: 100%;
   }
 
-  #start {
+  /* #start {
     display: block;
     width: 100%;
-  }
+  } */
 }
 
 /* Smartphones Breite ------------- */
 @media only screen and (max-height: 480px) {
   canvas {
     height: 100vh;
+    width: 100%;
   }
 }
 
 /* Maximale Breite bis zu 500px */
-@media only screen and (max-width: 500px) and (orientation: landscape) {
+@media only screen and (max-width: 500px) and (pointer: coarse) {
   #landscape {
     background-color: black;
     position: fixed;
@@ -43,6 +56,7 @@
 
   #landscape img {
     max-width: 70%;
+    z-index: 999;
   }
 
   #start {
@@ -59,7 +73,7 @@
   }
 
   #BTNS {
-    top: 0;
+    top: 5%;
   }
 }
 
@@ -69,19 +83,38 @@
     display: none !important;
   }
 
+  .gameTasten {
+    display: none;
+  }
+
   #start {
     background-position: center;
   }
 }
 
 @media (pointer: coarse) and (orientation: landscape) {
+  .btnCTN {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    top: 40%;
+  }
+
   #mobileBTNS {
     display: flex !important;
+    position: absolute;
+    padding-bottom: 0;
+    bottom: 10%;
   }
 
   .btnEndscreenCTN {
     justify-content: space-around;
-    gap: 60px;
+    margin-bottom: 20%;
+    margin-top: 0;
+  }
+
+  #BTNS {
+    top: 10%;
   }
 
   .btns {
@@ -97,19 +130,75 @@
   }
 
   #rules {
-    top: 15%;
-  }
-
-  #steering {
-    display: none;
+    top: 7%;
   }
 
   #btnCTNInfo {
-    top: 15%;
+    top: 10%;
+  }
+
+  .closeGameRules {
+    top: 7%;
+  }
+
+  .btns {
+    padding: 0 10px;
+    font-size: 15px;
+    letter-spacing: 0;
+  }
+
+  .winBTN {
+    height: 50px;
   }
 
   #startBTN {
-    margin-top: 15px;
     padding: 5px 40px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  p {
+    font-size: 25px;
+  }
+
+  #gameRules {
+    gap: 20px;
+  }
+
+  #winningScreen {
+    position: absolute;
+    background-color: #fc6e22;
+    width: 720px;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  #endScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: absolute;
+    background-color: #fc6e22;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    top: 0%;
+  }
+
+  #endScreen img {
+    height: 50%;
+    filter: drop-shadow(15px 15px);
+    display: block;
+    margin: 0;
+    margin-top: 10%;
+    align-items: center;
   }
 }
