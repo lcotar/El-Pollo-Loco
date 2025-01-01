@@ -108,6 +108,7 @@ canvas {
   flex-direction: column;
   gap: 10px;
   text-wrap: balance;
+  font-size: 12vw;
 }
 
 #landscape img {

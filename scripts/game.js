@@ -237,15 +237,23 @@ function clearAllIntervals() {
  * it performs the following actions:
  * */
 function restartGame() {
+  // Abfangen der Leertaste, um Neustart durch diese zu verhindern
+  document.addEventListener("keydown", function (event) {
+    if (event.code === "Space") {
+      event.preventDefault();
+    }
+  });
+
   document.getElementById("endScreen").classList.add("d-none");
   document.getElementById("winningScreen").classList.add("d-none");
   clearAllIntervals();
   world = null;
   initLvl();
   init();
+  startGame();
   backgroundAudio.play();
   backgroundAudio.volume = 0.25;
-  // world.audios.playAudio();
+  world.audios.playAudio();
   world.start();
 }
 
@@ -278,24 +286,24 @@ function quittingGame() {
  * If the mute icon has the `muteOn` class, it sets the volume of background audio, win sound, and lose sound to 0,
  * effectively muting the game sounds.
  * */
-
 function toggleSoundImage() {
-  let mute = document.getElementById("mute");
-  mute.classList.toggle("muteOn");
+  document.addEventListener("keydown", (event) => {
+    if (event.key === " ") event.preventDefault();
+  });
 
-  if (mute.classList[1]) {
-    backgroundAudio.volume = 0;
-    world.audios.pausingAudio();
-    backgroundAudio.volume = 0;
-    winSound.volume = 0;
-    loseSound.volume = 0;
-  } else if (mute.classList[0]) {
-    backgroundAudio.volume = 1;
-    world.audios.playAudio();
-    backgroundAudio.volume = 0.25;
-    winSound.volume = 1;
-    loseSound.volume = 1;
-  }
+  let mute = document.getElementById("mute");
+  let isOn = mute.classList.contains("muteOn");
+  mute.classList.toggle("muteOn", !isOn);
+  mute.classList.toggle("muteOff", isOn);
+  mute.src = isOn
+    ? "./assets/img/11_icons/soundOn.png"
+    : "./assets/img/11_icons/soundOff.png";
+  isMuted = !isOn;
+
+  backgroundAudio.volume = isOn ? 0.25 : 0;
+  winSound.volume = isOn ? 1 : 0;
+  loseSound.volume = isOn ? 1 : 0;
+  isOn ? world.audios.playAudio() : world.audios.pausingAudio();
 }
 
 /**
