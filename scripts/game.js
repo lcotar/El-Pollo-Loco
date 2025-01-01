@@ -2,10 +2,7 @@ let canvas;
 let world;
 let audios;
 let keyboard = new Keyboard();
-// let intervalIDs = []; // evt. auskommentieren
 let ctx;
-// gameStart = true;
-// gameEnd = false;
 let isMuted = false;
 
 let backgroundAudio = new Audio(
@@ -23,11 +20,7 @@ let loseSound = new Audio("./assets/audio/MarioDeath.mp3");
  */
 function init() {
   canvas = document.getElementById("canvas");
-
   handleRotation();
-
-  // character.src = "./assets/img/2_character_pepe/2_walk/W-21.png";
-  // ctx.drawImage(character, 20, 20, 50, 150);
 }
 
 /**
@@ -89,20 +82,6 @@ function pressKeyboard() {
     }
   });
 }
-
-/**
- * The `handleRotation()` function in the provided JavaScript code is responsible for determining the
- * orientation of the device (landscape or portrait) and setting up event listeners accordingly to
- * handle keyboard input or touch events based on the orientation.
- * */
-/* function handleRotation() {
-  if (window.matchMedia("(orientation: landscape)").matches) {
-    // keyboardSteering();
-    pressKeyboard();
-  } else if (window.matchMedia("(orientation: portrait)").matches) {
-    pressBTNS();
-  }
-} */
 
 function handleRotation() {
   if (window.matchMedia("(pointer: coarse)").matches) {
@@ -176,8 +155,7 @@ function showGameRules() {
 
 /**
  * The `function closeRules()` is responsible for hiding the game rules section on the webpage.
- * When this function is called, it adds the "d-none" class to the element with the id "gameRules",
- * making it hidden from the user.
+ * When this function is called, it adds the "d-none" class to the element with the id "gameRules", making it hidden from the user.
  * This allows users to close or hide the game rules section after viewing them.
  * */
 function closeRules() {

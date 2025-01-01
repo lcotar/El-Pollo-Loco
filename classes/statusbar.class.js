@@ -41,11 +41,12 @@ class Statusbar extends DrawableObject {
     this.img = this.imgCache[path];
   }
 
-  /** The `resolveIMGIndex()` method in the `Statusbar` class is determining the index of the image to
-   *  be displayed based on the current percentage value of the status bar. It checks the percentage
-   *  value and returns the corresponding index in the array of images (`IMAGES_HEALTH`) based on
-   *  predefined thresholds. The method essentially maps the percentage value to the appropriate image
-   *  index for the status bar's visual representation. */
+  /**
+   * The `resolveIMGIndex()` method in the `Statusbar` class is determining the index of the image to
+   * be displayed based on the current percentage value of the status bar. It checks the percentage
+   * value and returns the corresponding index in the array of images (`IMAGES_HEALTH`) based on
+   * predefined thresholds. The method essentially maps the percentage value to the appropriate image
+   * index for the status bar's visual representation. */
   resolveIMGIndex() {
     if (this.percentage == 100) {
       return 5;

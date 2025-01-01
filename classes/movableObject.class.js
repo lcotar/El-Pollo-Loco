@@ -59,13 +59,6 @@ class MovableObject extends DrawableObject {
    * collision based on the positions and dimensions of the two objects.
    * */
   isColliding(mo) {
-    /* return (
-      this.x + this.width > mo.x &&
-      this.y + this.height > mo.y &&
-      this.x < mo.x &&
-      this.y < mo.y + mo.height
-    ); */
-
     return (
       this.x + this.width - this.offset.right >= mo.x + mo.offset.left &&
       this.x + this.offset.left < mo.x + mo.width - mo.offset.right &&
@@ -127,12 +120,10 @@ class MovableObject extends DrawableObject {
   }
 
   /**
-   * The `moveLeft()` method in the `MovableObject` class is responsible for moving the object to the
-   *  left on the canvas. It decrements the `x` property of the object by the `speed` value, which
-   *  results in the object moving towards the left side of the canvas. Additionally, there is a
-   *  conditional check that if the object moves beyond the left boundary of the canvas (i.e., `this.x <
-   *  -this.width`), it resets the object's position to a random `x` coordinate within the canvas width
-   *  (500 in this case).
+   * The `moveLeft()` method in the `MovableObject` class is responsible for moving the object to the left on the canvas.
+   * It decrements the `x` property of the object by the `speed` value, which results in the object moving towards the left side of the canvas.
+   * Additionally, there is a conditional check that if the object moves beyond the left boundary of the canvas (i.e., `this.x < -this.width`),
+   * it resets the object's position to a random `x` coordinate within the canvas width (500 in this case).
    * */
   moveLeft() {
     this.x -= this.speed; // Move left

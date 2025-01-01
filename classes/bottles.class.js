@@ -22,8 +22,6 @@ class Bottle extends MovableObject {
     "./assets/img/6_salsa_bottle/2_salsa_bottle_on_ground.png",
   ];
 
-  // IMAGES_BOTTLES_IN_AIR = ["assets/img/6_salsa_bottle/salsa_bottle.png"];
-
   /**
    * The `constructor()` function in the `Bottle` class is setting up initial properties and behaviors
    * when a new `Bottle` object is created. Here's a breakdown of what it is doing:

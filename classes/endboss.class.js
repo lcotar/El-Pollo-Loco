@@ -80,8 +80,9 @@ class Endboss extends MovableObject {
     this.animation();
   }
 
-  /* The `animation()` method in the `Endboss` class is setting up intervals for three different
- functions to be executed periodically: */
+  /**
+   * The `animation()` method in the `Endboss` class is setting up intervals for three different functions to be executed periodically:
+   * */
   animation() {
     setInterval(() => {
       this.checkBottleHurt();

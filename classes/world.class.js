@@ -27,12 +27,12 @@ class World {
 
   /**
    * The constructor in the World class is a special method that is automatically called when a new
-   *  instance of the World class is created. It takes two parameters canvas and keyboard, which
-   *  are used to initialize the properties of the World instance. Inside the constructor, the
-   *  canvas context (ctx) is obtained from the canvas element, and the canvas, keyboard, and
-   *  lvl properties are set to the provided values. Additionally, the draw method is called to
-   *  start rendering the game world on the canvas, and the setToWorld method is called to establish a
-   *  reference to the current World instance within the character object.
+   * instance of the World class is created. It takes two parameters canvas and keyboard, which
+   * are used to initialize the properties of the World instance. Inside the constructor, the
+   * canvas context (ctx) is obtained from the canvas element, and the canvas, keyboard, and
+   * lvl properties are set to the provided values. Additionally, the draw method is called to
+   * start rendering the game world on the canvas, and the setToWorld method is called to establish a
+   * reference to the current World instance within the character object.
    * */
   constructor(canvas, keyboard, audioCollection) {
     this.ctx = canvas.getContext("2d");
@@ -42,10 +42,6 @@ class World {
     this.draw();
     this.setToWorld();
     this.run();
-
-    /* setInterval(() => {
-      this.availableBottles();
-    }, 100); */
   }
 
   /**
@@ -58,10 +54,11 @@ class World {
     this.character.world = this;
   }
 
-  /** The checkCollision() method in the World class is responsible for periodically checking for
-   *  collisions between the character and enemies in the game world. It uses setInterval() to
-   *  repeatedly execute a function that iterates over the enemies in the current level (lvl) and
-   *  checks if the character is colliding with any of them.
+  /**
+   * The checkCollision() method in the World class is responsible for periodically checking for
+   * collisions between the character and enemies in the game world. It uses setInterval() to
+   * repeatedly execute a function that iterates over the enemies in the current level (lvl) and
+   * checks if the character is colliding with any of them.
    * */
   run() {
     setInterval(() => {
@@ -77,6 +74,13 @@ class World {
     }, 150);
   }
 
+  /**
+   * Starts the animation for all enemies in the current level.
+   * Iterates over the enemies array and triggers the `animation` method for each enemy.
+   * Ensures that the `enemies` array exists before execution.
+   * Logs an error if the level or enemies are not defined.
+   * Can be extended to handle asynchronous animations or error management.
+   */
   start() {
     this.lvl.enemies.forEach((enemy) => {
       enemy.animation();

@@ -26,8 +26,6 @@ class Chicken extends MovableObject {
 
   IMAGES_DEAD = ["assets/img/3_enemies_chicken/chicken_normal/2_dead/dead.png"];
 
-  // chickenSound = new Audio("assets/audio/chicken.mp4");
-
   /**
    * The constructor in the Chicken class is a special method that is automatically called when a
    * new instance of the Chicken class is created. In this case, the constructor method is
