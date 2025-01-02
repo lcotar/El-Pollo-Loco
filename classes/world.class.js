@@ -307,7 +307,6 @@ class World {
     }
 
     mo?.draw(this.ctx);
-    mo?.drawFrame(this.ctx); // muss vor abgabe entfernt werden
 
     if (mo?.otherDirection) {
       this.flipIMGBack(mo);

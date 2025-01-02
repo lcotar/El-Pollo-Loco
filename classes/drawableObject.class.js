@@ -44,7 +44,7 @@ class DrawableObject {
    * context `ctx`.
    * */
   // muss vorabgabe gelöscht werden
-  drawFrame(ctx) {
+  /* drawFrame(ctx) {
     if (this instanceof Character || this instanceof Chicken) {
       ctx.beginPath();
       ctx.lineWidth = "5";
@@ -52,7 +52,7 @@ class DrawableObject {
       ctx.rect(this.x, this.y, this.width, this.height);
       ctx.stroke();
     }
-  }
+  } */
 
   /**
    * The `loadImages(array)` method in the `MovableObject` class is responsible for loading multiple

@@ -1,0 +1,81 @@
+#landscape img {
+  max-width: 70%;
+  z-index: 999;
+}
+
+#endScreen img {
+  width: 70%;
+  height: 70%;
+  filter: drop-shadow(15px 15px);
+  display: block;
+  margin: auto;
+  align-items: center;
+}
+
+#steeringBTNMobile img {
+  width: 15%;
+  cursor: pointer;
+}
+
+#winningScreen img {
+  width: 70%;
+  height: 70%;
+  filter: drop-shadow(15px 15px);
+  display: block;
+  margin: auto;
+  align-items: center;
+}
+
+#quitGame {
+  background-image: url("../assets/img/11_icons/quitGame.png");
+}
+
+#restart {
+  background-image: url("../assets/img/11_icons/restartGame.png");
+}
+
+.muteOn {
+  background-image: url("../assets/img/11_icons/soundOff.png");
+}
+
+.muteOff {
+  background-image: url("../assets/img/11_icons/soundOn.png");
+}
+
+#mobileBTNS img {
+  width: 15%;
+  cursor: pointer;
+}
+
+#rules {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  cursor: pointer;
+  width: 10%;
+  overflow: scroll;
+}
+
+.closeGameRules {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  height: 100px;
+}
+
+.closeGameRules:hover {
+  cursor: pointer;
+}
+
+.closeImpr {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  height: 100px;
+}
+
+.closeImpr:hover {
+  cursor: pointer;
+}

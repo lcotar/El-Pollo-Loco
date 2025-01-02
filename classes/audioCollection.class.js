@@ -8,14 +8,14 @@ class AudioCollections {
   chickenSound = new Audio("./assets/audio/ChickenScreamNoise.mp3");
   backgroundAudio = new Audio("./assets/audio/DramaticMusicSound.mp3");
   snoreSound = new Audio("./assets/audio/sound_effect.mp3");
-  jumpSoundCharacter = new Audio("./assets/audio/jumpSound.mp3");
+  jumpSoundCharacter = new Audio("./assets/audio/jumpSoundShort.mp3");
   coinSound = new Audio("./assets/audio/coinSound.mp3");
-  hurtSound = new Audio("./assets/audio/sound_effect.mp3"); // hurting sound
-  pickBottleSound = new Audio("./assets/audio/collect_item.mp3"); // pick Bottles
+  hurtSound = new Audio("./assets/audio/hurtSoundShort.mp3"); // hurting sound
+  pickBottleSound = new Audio("./assets/audio/collectItemShort.mp3"); // pick Bottles
   chickenDeadSound = new Audio("./assets/audio/ChickenScreamNoise.mp3"); // chicken dead
   winSound = new Audio("./assets/audio/LevelComplete.mp3"); // .mp3 Datei verwenden
   loseSound = new Audio("./assets/audio/MarioDeath.mp3"); // .mp3 Datei verwenden
-  bottleSplash = new Audio("./assets/audio/bottle.mp3"); // Bottle splashing
+  bottleSplash = new Audio("./assets/audio/punchSound.mp3"); // Bottle splashing
 
   /**
    * The `constructor()` method in the `AudioCollections` class is setting up the initial state of the

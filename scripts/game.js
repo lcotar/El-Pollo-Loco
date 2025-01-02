@@ -211,16 +211,32 @@ function clearAllIntervals() {
 }
 
 /**
- * The `restartGame()` function is responsible for restarting the game. When this function is called,
- * it performs the following actions:
- * */
-function restartGame() {
+ * Listens for the "Space" key press and prevents the default browser behavior.
+ * This is useful for avoiding unintended actions, such as restarting a game,
+ * when the spacebar is pressed.
+ * Adds an event listener to the "keydown" event for this purpose.
+ * Ensures smoother user interactions in applications requiring precise key control.
+ */
+function restartGameKeyboard() {
   // Abfangen der Leertaste, um Neustart durch diese zu verhindern
   document.addEventListener("keydown", function (event) {
     if (event.code === "Space") {
       event.preventDefault();
     }
   });
+}
+
+/**
+ * Restarts the game by resetting game elements, initializing levels,
+ * and playing background audio.
+ * Invokes a separate function to handle spacebar prevention logic.
+ * Hides the end and winning screens, clears all intervals, and resets the game world.
+ * Reinitializes the game setup and starts the game loop.
+ * Ensures that background audio and world-specific audio are played at the correct volume.
+ */
+function restartGame() {
+  // Aufruf der separaten Funktion, um die Leertasten-Abfanglogik auszuführen
+  restartGameKeyboard();
 
   document.getElementById("endScreen").classList.add("d-none");
   document.getElementById("winningScreen").classList.add("d-none");
@@ -259,15 +275,27 @@ function quittingGame() {
 }
 
 /**
- * The `toggleSoundImage()` function is responsible for toggling the sound on and off in the game.
- * When this function is called, it checks if the mute icon has the class `muteOn`.
- * If the mute icon has the `muteOn` class, it sets the volume of background audio, win sound, and lose sound to 0,
- * effectively muting the game sounds.
- * */
-function toggleSoundImage() {
+ * Prevents the default action of the spacebar to avoid interfering with other functionalities.
+ * Specifically useful for ensuring that pressing the spacebar does not trigger unintended behavior,
+ * such as scrolling or toggling elements when interacting with the application.
+ * Adds a "keydown" event listener that detects the spacebar key (" ") and stops its default action.
+ * Helps maintain control over user interactions for applications with keyboard-driven actions.
+ */
+function toggleSoundImgKeyboard() {
   document.addEventListener("keydown", (event) => {
     if (event.key === " ") event.preventDefault();
   });
+}
+
+/**
+ * Toggles the sound settings and updates the sound icon based on the current state.
+ * Calls a function to prevent unintended behavior caused by the spacebar key.
+ * Switches between "sound on" and "sound off" states, updating the icon accordingly.
+ * Adjusts the volume of background, win, and lose sounds and toggles world audio playback.
+ * Ensures a smooth and user-friendly way to manage sound settings within the application.
+ */
+function toggleSoundImage() {
+  toggleSoundImgKeyboard();
 
   let mute = document.getElementById("mute");
   let isOn = mute.classList.contains("muteOn");
