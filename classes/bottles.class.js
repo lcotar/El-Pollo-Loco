@@ -6,7 +6,7 @@
  * Includes offset and size properties for collision detection.
  */
 class Bottle extends MovableObject {
-  y = 360;
+  y = 355;
   bottles = [];
   width = 60;
   height = 80;

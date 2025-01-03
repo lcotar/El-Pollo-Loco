@@ -38,23 +38,6 @@ class DrawableObject {
   }
 
   /**
-   * The `drawFrame(ctx)` method is responsible for drawing a frame around the movable object when it
-   * is being rendered on the canvas. It checks if the object is an instance of the `Character` or
-   * `Chicken` class, and if so, it draws a blue rectangular frame around the object using the canvas
-   * context `ctx`.
-   * */
-  // muss vorabgabe gelöscht werden
-  /* drawFrame(ctx) {
-    if (this instanceof Character || this instanceof Chicken) {
-      ctx.beginPath();
-      ctx.lineWidth = "5";
-      ctx.strokeStyle = "blue";
-      ctx.rect(this.x, this.y, this.width, this.height);
-      ctx.stroke();
-    }
-  } */
-
-  /**
    * The `loadImages(array)` method in the `MovableObject` class is responsible for loading multiple
    * images into the `imgCache` property of the object. It takes an array of image paths as a
    * parameter, iterates over each path in the array, creates a new `Image` object for each path, sets

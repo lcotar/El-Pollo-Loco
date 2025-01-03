@@ -6,7 +6,7 @@
  * reusability and maintaining a clear hierarchy in the codebase.
  * */
 class Character extends MovableObject {
-  height = 300;
+  height = 290;
   y = 80;
   speed = 10;
   world;
@@ -119,41 +119,6 @@ class Character extends MovableObject {
     setInterval(() => {
       this.stopAnimation();
     }, 6000);
-    /* setInterval(() => {
-      // this.walkingSound.pause();
-      if (this.world.keyboard.RIGHT && this.x < this.world.lvl.lvlEndX) {
-        this.moveRight();
-        this.walkingSound.play();
-        this.otherDirection = false; // not mirroring character
-      }
-
-      if (this.world.keyboard.LEFT && this.x > 0) {
-        this.moveLeft();
-        this.walkingSound.play();
-        this.otherDirection = true; // mirroring character
-      }
-
-      if (this.world.keyboard.SPACE && !this.isAboveGround()) {
-        this.jump();
-      }
-
-      this.world.cameraX = -this.x + 100;
-    }, 1000 / 60);
-
-    setInterval(() => {
-      if (this.isDead()) {
-        this.playAnimation(this.IMAGES_DEAD);
-      } else if (this.isHurt()) {
-        this.playAnimation(this.IMAGES_HURT);
-      } else if (this.isAboveGround()) {
-        this.playAnimation(this.IMAGES_JUMPING);
-      } else {
-        if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-          // Walk animation
-          this.playAnimation(this.IMAGES_WALKING);
-        }
-      }
-    }, 50);*/
   }
 
   /**

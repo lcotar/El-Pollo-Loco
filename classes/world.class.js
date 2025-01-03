@@ -76,8 +76,8 @@ class World {
 
   /**
    * Starts the animation for all enemies in the current level.
-   * Iterates over the enemies array and triggers the `animation` method for each enemy.
-   * Ensures that the `enemies` array exists before execution.
+   * Iterates over the enemies array and triggers the animation method for each enemy.
+   * Ensures that the enemies array exists before execution.
    * Logs an error if the level or enemies are not defined.
    * Can be extended to handle asynchronous animations or error management.
    */
@@ -88,9 +88,9 @@ class World {
   }
 
   /**
-   * The above code is a comment block in JavaScript. It appears to be a placeholder for a function called `checkCollisions()`.
+   * The above code is a comment block in JavaScript. It appears to be a placeholder for a function called checkCollisions().
    * The function is likely intended to check for collisions between objects in a game or simulation.
-   * However, the actual implementation of the `checkCollisions()` function is not provided in the code snippet.
+   * However, the actual implementation of the checkCollisions() function is not provided in the code snippet.
    * */
   checkCollisions() {
     this.forEachEnemy();
@@ -100,7 +100,7 @@ class World {
   }
 
   /**
-   * The above code is a comment block in JavaScript. It appears to be a placeholder for a function called `forEachCoins()`.
+   * The above code is a comment block in JavaScript. It appears to be a placeholder for a function called forEachCoins().
    * */
   forEachCoins() {
     this.lvl.coins.forEach((coins, index) => {
@@ -114,8 +114,8 @@ class World {
   }
 
   /**
-   * The `forEachBottles()` method in the `World` class is iterating over the array of bottles present
-   * in the current level (`lvl`) of the game world. For each bottle, it checks if the character is
+   * The forEachBottles() method in the World class is iterating over the array of bottles present
+   * in the current level (lvl) of the game world. For each bottle, it checks if the character is
    * colliding with that bottle and if the number of bottles collected by the character is less than 5.
    * If a collision is detected and the character has collected less than 5 bottles, the method performs the following actions:
    * */
@@ -132,7 +132,7 @@ class World {
   }
 
   /**
-   * The `forEachEnemy()` method in the `World` class is iterating over the enemies present in the current level (`lvl`) of the game world.
+   * The forEachEnemy() method in the World class is iterating over the enemies present in the current level (lvl) of the game world.
    * For each enemy, it checks if the character is colliding with that enemy.
    * If a collision is detected, it performs the following actions:
    * */
@@ -152,7 +152,7 @@ class World {
   }
 
   /**
-   * The `forEndboss()` method in the `World` class is checking if the character is colliding with the
+   * The forEndboss() method in the World class is checking if the character is colliding with the
    * boss entity in the game world. If a collision is detected, it plays a hurt sound, decreases the
    * character's energy, and updates the status bar to reflect the character's energy level.
    * This method handles the interaction between the character and the boss entity during gameplay.
@@ -166,11 +166,11 @@ class World {
   }
 
   /**
-   * The `checkThrowObjects()` method in the `World` class is responsible for checking if the character
+   * The checkThrowObjects() method in the World class is responsible for checking if the character
    * is attempting to throw a bottle in the game. It checks if the "D" key is pressed and if the character has collected at least one bottle.
-   * If these conditions are met, a new `ThrowableObjects`
+   * If these conditions are met, a new ThrowableObjects
    * instance (representing a thrown bottle) is created at a specific position relative to the character.
-   * The method then adds this thrown bottle to the `throwableObjects` array, decreases the count of available bottles,
+   * The method then adds this thrown bottle to the throwableObjects array, decreases the count of available bottles,
    * updates the bottle count in the status bar, and sets up collision detection for the thrown bottle with enemies and the end boss.
    * */
   checkThrowObjects() {
@@ -192,9 +192,9 @@ class World {
   }
 
   /**
-   * The `bottlesForEndboss()` method in the `World` class is checking if the boss entity in the game
+   * The bottlesForEndboss() method in the World class is checking if the boss entity in the game
    * world still has energy remaining and if the number of bottles collected by the character is less than 5.
-   * If both conditions are met, it triggers the `endGame()` function. This method essentially
+   * If both conditions are met, it triggers the endGame() function. This method essentially
    * serves as a check to determine if the character has collected enough bottles to defeat the boss entity in the game.
    * */
   bottlesForEndboss() {
@@ -204,8 +204,8 @@ class World {
   }
 
   /**
-   * The `checkCollisionEnemyBottle(bottle)` method in the `World` class is responsible for checking if
-   * a thrown bottle (represented by the `bottle` parameter) collides with any enemies in the game world.
+   * The checkCollisionEnemyBottle(bottle) method in the World class is responsible for checking if
+   * a thrown bottle (represented by the bottle parameter) collides with any enemies in the game world.
    * */
   checkCollisionEnemyBottle(bottle) {
     this.lvl.enemies.forEach((enemy) => {
@@ -218,8 +218,8 @@ class World {
   }
 
   /**
-   * The `checkCollisionEndbossBottle(bottle)` method in the `World` class is responsible for checking
-   * if a thrown bottle (represented by the `bottle` parameter) collides with the boss entity in the
+   * The checkCollisionEndbossBottle(bottle) method in the World class is responsible for checking
+   * if a thrown bottle (represented by the bottle parameter) collides with the boss entity in the
    * game world. If a collision is detected between the thrown bottle and the boss entity, the method,
    * performs the following actions:
    * */
@@ -244,8 +244,8 @@ class World {
     this.objectsAddToMap();
     this.addToMap(this.character);
     this.ctx.translate(-this.cameraX, 0); // Back
-    this.statusbarsAddToMap();
 
+    this.statusbarsAddToMap();
     // Draw() wird immer wieder aufgerufen!!!
     let self = this;
     requestAnimationFrame(function () {
@@ -255,7 +255,7 @@ class World {
 
   /**
    * The above code is a comment block in JavaScript. It is not executable code. It appears to be a
-   * placeholder for a function call `statusbarsAddToMap()`.
+   * placeholder for a function call statusbarsAddToMap().
    * */
   statusbarsAddToMap() {
     this.addToMap(this.statusBar);
@@ -268,7 +268,7 @@ class World {
 
   /**
    * The above code is a comment block in JavaScript. It appears to be calling a function named
-   * `objectsAddToMap()`. However, the actual implementation of the function is not provided in the code snippet.
+   * objectsAddToMap(). However, the actual implementation of the function is not provided in the code snippet.
    * */
   objectsAddToMap() {
     this.addObjectsToMap(this.lvl.backgroundObjects);
