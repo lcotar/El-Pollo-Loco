@@ -7,7 +7,7 @@ class AudioCollections {
   walkingSound = new Audio("./assets/audio/Walking_through_grass_(long).mp3");
   chickenSound = new Audio("./assets/audio/ChickenScreamNoise.mp3");
   backgroundAudio = new Audio("./assets/audio/DramaticMusicSound.mp3");
-  snoreSound = new Audio("./assets/audio/sound_effect.mp3");
+  snoreSound = new Audio("./assets/audio/snoringSound.mp3");
   jumpSoundCharacter = new Audio("./assets/audio/jumpSoundShort.mp3");
   coinSound = new Audio("./assets/audio/coinSound.mp3");
   hurtSound = new Audio("./assets/audio/hurtSoundShort.mp3"); // hurting sound

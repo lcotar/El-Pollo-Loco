@@ -159,6 +159,7 @@ class World {
    * */
   forEndboss() {
     if (this.character.isColliding(this.boss)) {
+      this.audios.chickenDeadSound.play();
       this.audios.hurtSound.play();
       this.character.hit();
       this.statusBar.setPercentage(this.character.energy);
@@ -198,7 +199,8 @@ class World {
    * serves as a check to determine if the character has collected enough bottles to defeat the boss entity in the game.
    * */
   bottlesForEndboss() {
-    if (this.boss.energy > 0 && this.lvl.bottles < 5) {
+    if (this.boss.energy > 0 && this.lvl.bottles < 1) {
+      // Wenn keine Flaschen mehr vorhanden sind = Game over
       endGame();
     }
   }
@@ -240,12 +242,17 @@ class World {
    * */
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
     this.ctx.translate(this.cameraX, 0);
     this.objectsAddToMap();
-    this.addToMap(this.character);
     this.ctx.translate(-this.cameraX, 0); // Back
 
     this.statusbarsAddToMap();
+
+    this.ctx.translate(this.cameraX, 0);
+    this.addToMap(this.character);
+    this.ctx.translate(-this.cameraX, 0); // Back
+
     // Draw() wird immer wieder aufgerufen!!!
     let self = this;
     requestAnimationFrame(function () {

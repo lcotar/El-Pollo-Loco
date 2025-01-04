@@ -23,6 +23,14 @@ function init() {
   handleRotation();
 }
 
+function handleRotation() {
+  if (window.matchMedia("(pointer: coarse)").matches) {
+    pressBTNS();
+  } else {
+    pressKeyboard();
+  }
+}
+
 /**
  * Listens for keyboard keydown and keyup events to manage the state of pressed keys.
  * Updates the `keyboard` object with boolean values (`true` when a key is pressed, `false` when released).
@@ -83,12 +91,68 @@ function pressKeyboard() {
   });
 }
 
-function handleRotation() {
-  if (window.matchMedia("(pointer: coarse)").matches) {
-    pressBTNS();
-  } else {
-    pressKeyboard();
-  }
+/**
+ * Listens for touch events on mobile button elements and updates the keyboard state.
+ * Tracks touchstart and touchend events for each button (left, right, jump, throw) to control the corresponding movement or action.
+ * Prevents default behavior for touch events to ensure the game functions correctly.
+ * Updates the `keyboard` object with `true` when the button is pressed and `false` when released.
+ */
+function pressBTNS() {
+  document.getElementById("btnLeft").addEventListener("touchstart", (e) => {
+    if (e.cancelable) {
+      e.preventDefault();
+    }
+    keyboard.LEFT = true;
+  });
+
+  document.getElementById("btnLeft").addEventListener("touchend", (e) => {
+    if (e.cancelable) {
+      e.preventDefault();
+    }
+    keyboard.LEFT = false;
+  });
+
+  document.getElementById("btnRight").addEventListener("touchstart", (e) => {
+    if (e.cancelable) {
+      e.preventDefault();
+    }
+    keyboard.RIGHT = true;
+  });
+
+  document.getElementById("btnRight").addEventListener("touchend", (e) => {
+    if (e.cancelable) {
+      e.preventDefault();
+    }
+    keyboard.RIGHT = false;
+  });
+
+  document.getElementById("btnThrow").addEventListener("touchstart", (e) => {
+    if (e.cancelable) {
+      e.preventDefault();
+    }
+    keyboard.D = true;
+  });
+
+  document.getElementById("btnThrow").addEventListener("touchend", (e) => {
+    if (e.cancelable) {
+      e.preventDefault();
+    }
+    keyboard.D = false;
+  });
+
+  document.getElementById("btnJump").addEventListener("touchstart", (e) => {
+    if (e.cancelable) {
+      e.preventDefault();
+    }
+    keyboard.SPACE = true;
+  });
+
+  document.getElementById("btnJump").addEventListener("touchend", (e) => {
+    if (e.cancelable) {
+      e.preventDefault();
+    }
+    keyboard.SPACE = false;
+  });
 }
 
 window.addEventListener("resize", handleRotation);
@@ -349,68 +413,4 @@ function showRules() {
 function cloesRules() {
   document.getElementById("rules").classList.remove("d-none");
   document.getElementById("gameRules").classList.add("d-none");
-}
-
-/**
- * Listens for touch events on mobile button elements and updates the keyboard state.
- * Tracks touchstart and touchend events for each button (left, right, jump, throw) to control the corresponding movement or action.
- * Prevents default behavior for touch events to ensure the game functions correctly.
- * Updates the `keyboard` object with `true` when the button is pressed and `false` when released.
- */
-function pressBTNS() {
-  document.getElementById("btnLeft").addEventListener("touchstart", (e) => {
-    if (e.cancelable) {
-      e.preventDefault();
-    }
-    keyboard.LEFT = true;
-  });
-
-  document.getElementById("btnLeft").addEventListener("touchend", (e) => {
-    if (e.cancelable) {
-      e.preventDefault();
-    }
-    keyboard.LEFT = false;
-  });
-
-  document.getElementById("btnRight").addEventListener("touchstart", (e) => {
-    if (e.cancelable) {
-      e.preventDefault();
-    }
-    keyboard.RIGHT = true;
-  });
-
-  document.getElementById("btnRight").addEventListener("touchend", (e) => {
-    if (e.cancelable) {
-      e.preventDefault();
-    }
-    keyboard.RIGHT = false;
-  });
-
-  document.getElementById("btnThrow").addEventListener("touchstart", (e) => {
-    if (e.cancelable) {
-      e.preventDefault();
-    }
-    keyboard.D = true;
-  });
-
-  document.getElementById("btnThrow").addEventListener("touchend", (e) => {
-    if (e.cancelable) {
-      e.preventDefault();
-    }
-    keyboard.D = false;
-  });
-
-  document.getElementById("btnJump").addEventListener("touchstart", (e) => {
-    if (e.cancelable) {
-      e.preventDefault();
-    }
-    keyboard.SPACE = true;
-  });
-
-  document.getElementById("btnJump").addEventListener("touchend", (e) => {
-    if (e.cancelable) {
-      e.preventDefault();
-    }
-    keyboard.SPACE = false;
-  });
 }

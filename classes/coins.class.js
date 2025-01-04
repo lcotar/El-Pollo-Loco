@@ -6,7 +6,7 @@
  * Includes offset values for collision detection.
  */
 class Coin extends MovableObject {
-  y = 100;
+  y = 10;
   coins = [];
   offset = {
     top: 0,

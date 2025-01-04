@@ -58,7 +58,12 @@
     background-position: center;
   }
 
-  #endscreen {
+  #winningScreen {
+    width: 100%;
+    height: 100vh;
+  }
+
+  #endScreen {
     width: 100%;
     height: 100vh;
   }
@@ -108,12 +113,22 @@
     margin-top: 0;
   }
 
+  .winningBTNS {
+    justify-content: space-around;
+    margin-bottom: 20%;
+    margin-top: 0;
+  }
+
   #BTNS {
     top: 10%;
   }
 
   .btns {
     padding: 5px 40px;
+  }
+
+  #winningScreen {
+    padding: unset;
   }
 
   #endScreen {
@@ -165,12 +180,25 @@
   #winningScreen {
     position: absolute;
     background-color: #fc6e22;
-    width: 720px;
-    height: 480px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    padding: 0 20px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    top: 0%;
+  }
+
+  #winningScreen img {
+    height: 50%;
+    filter: drop-shadow(15px 15px);
+    display: block;
+    margin: 0;
+    margin-top: 10%;
+    align-items: center;
   }
 
   #endScreen {
