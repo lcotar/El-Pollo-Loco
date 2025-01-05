@@ -309,7 +309,6 @@ class World {
    * performing the following actions:
    * */
   addToMap(mo) {
-    // => mo = movable Objects
     if (mo?.otherDirection) {
       this.flipIMG(mo);
     }

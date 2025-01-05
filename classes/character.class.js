@@ -88,8 +88,6 @@ class Character extends MovableObject {
     "./assets/img/2_character_pepe/5_dead/D-57.png",
   ];
 
-  // walkingSound = new Audio("assets/audio/Walking_through_grass_(long).mp3");
-
   constructor() {
     super().loadImage("./assets/img/2_character_pepe/2_walk/W-21.png");
     this.loadImages(this.IMAGES_WALKING);
@@ -121,23 +119,6 @@ class Character extends MovableObject {
     setInterval(() => {
       this.stopAnimation();
     }, 6000);
-
-    /* setInterval(() => {
-      if (this.deadFunctionInterval()) {
-        this.playAnimation(this.IMAGES_DEAD);
-      } else if (this.ifIsHurt()) {
-        this.idleCounter = 0;
-        this.playAnimation(this.IMAGES_HURT);
-      } else if (this.walkingFunctionInterval()) {
-        this.idleCounter = 0;
-        this.playAnimation(this.IMAGES_WALKING);
-      } else if (this.idleCounter > 5) {
-        this.playAnimation(this.IMAGES_SLEEPING);
-      } else {
-        this.idleCounter++;
-        this.playAnimation(this.IMAGES_IDLE_PEPE);
-      }
-    }, 25); */
   }
 
   /**
@@ -153,8 +134,7 @@ class Character extends MovableObject {
   /**
    * Die Funktion walkingFunctionInterval() Prüft die entsprechenden X-Werte des Characters und des Endbosses.
    * Des Weiteren prüft sie die entsprechenden Tasten, hier die rechte & die linke Pfeiltaste als auch die Leertaste, für die Bewegungen
-   * und das Springen des Characters gedrückt werden. Welche dann die entsprechenden Aktionen ausführt
-   *
+   * und das Springen des Characters gedrückt werden. Welche dann die entsprechenden Aktionen ausführt.
    */
   walkingFunctionInterval() {
     let endBossPosition = this.world.boss.x;
