@@ -1,8 +1,8 @@
 /**
- * The `class Character extends MovableObject` statement is creating a new class named `Character` that
- * extends the `MovableObject` class. This means that the `Character` class inherits all the properties
- * and methods from the `MovableObject` class. By extending `MovableObject`, the `Character` class can
- * reuse and build upon the functionality defined in the `MovableObject` class, promoting code
+ * The class Character extends MovableObject statement is creating a new class named Character that
+ * extends the MovableObject class. This means that the Character class inherits all the properties
+ * and methods from the MovableObject class. By extending MovableObject, the Character class can
+ * reuse and build upon the functionality defined in the MovableObject class, promoting code
  * reusability and maintaining a clear hierarchy in the codebase.
  * */
 class Character extends MovableObject {
@@ -16,6 +16,7 @@ class Character extends MovableObject {
   endHurt = false;
   isSleep = false;
   bottle = new Bottle();
+  idlecounter = 0;
   offset = {
     top: 104,
     bottom: 0,
@@ -99,10 +100,11 @@ class Character extends MovableObject {
     this.loadImages(this.IMAGES_SLEEPING);
     this.applyGravity();
     this.animation();
+    this.gameStartTime = new Date().getTime();
   }
 
   /**
-   * The `animation()` method in the `Character` class is responsible for setting up two intervals.
+   * The animation() method in the Character class is responsible for setting up two intervals.
    * */
   animation() {
     setInterval(() => {
@@ -119,12 +121,29 @@ class Character extends MovableObject {
     setInterval(() => {
       this.stopAnimation();
     }, 6000);
+
+    /* setInterval(() => {
+      if (this.deadFunctionInterval()) {
+        this.playAnimation(this.IMAGES_DEAD);
+      } else if (this.ifIsHurt()) {
+        this.idleCounter = 0;
+        this.playAnimation(this.IMAGES_HURT);
+      } else if (this.walkingFunctionInterval()) {
+        this.idleCounter = 0;
+        this.playAnimation(this.IMAGES_WALKING);
+      } else if (this.idleCounter > 5) {
+        this.playAnimation(this.IMAGES_SLEEPING);
+      } else {
+        this.idleCounter++;
+        this.playAnimation(this.IMAGES_IDLE_PEPE);
+      }
+    }, 25); */
   }
 
   /**
-   * The `ifIsHurt()` method in the `Character` class is checking if the character is hurt. If the character is hurt,
-   * it triggers the `playAnimation()` method with the `IMAGES_HURT` images to display the hurt animation.
-   * Additionally, it sets the `endHurt` property to `true`, indicating that the hurt state has ended.
+   * The ifIsHurt() method in the Character class is checking if the character is hurt. If the character is hurt,
+   * it triggers the playAnimation() method with the IMAGES_HURT images to display the hurt animation.
+   * Additionally, it sets the endHurt property to true, indicating that the hurt state has ended.
    * */
   ifIsHurt() {
     if (this.isHurt()) this.playAnimation(this.IMAGES_HURT);
@@ -132,14 +151,11 @@ class Character extends MovableObject {
   }
 
   /**
-   * The `walkingFunctionInterval()` method in the `Character` class is responsible for handling the character's movement based on keyboard input.
-   * It checks if the right or left arrow keys are pressed to move the character right or left respectively.
-   * If the character is within the level boundaries and not at the end boss position, it moves the character in the corresponding direction.
-   * Additionally, it sets the `otherDirection` property to control the character's orientation.
-   * If the space key is pressed and the character is not already in a jump state, it triggers the character to jump
-   * and sets the `isJump` and `endHurt` properties accordingly.
-   * Finally, it adjusts the camera position based on the character's movement.
-   * */
+   * Die Funktion walkingFunctionInterval() Prüft die entsprechenden X-Werte des Characters und des Endbosses.
+   * Des Weiteren prüft sie die entsprechenden Tasten, hier die rechte & die linke Pfeiltaste als auch die Leertaste, für die Bewegungen
+   * und das Springen des Characters gedrückt werden. Welche dann die entsprechenden Aktionen ausführt
+   *
+   */
   walkingFunctionInterval() {
     let endBossPosition = this.world.boss.x;
     let isMoving = false;
@@ -166,11 +182,14 @@ class Character extends MovableObject {
   }
 
   /**
-   * The `deadFunctionInterval()` method in the `Character` class is setting up an interval that checks if the character is dead.
-   * If the character is dead, it triggers the `playAnimation()` method with the `IMAGES_DEAD` images to display the dead animation.
-   * Additionally, it includes a `setTimeout()` function that calls the `endGame()` function after 1 second when the character is dead.
-   * This function is responsible for handling the animation and game logic related to the character's death state.
-   * */
+   * Die deadFunctionInterval() überprüft regelmässig, ob der Charakter "tot" ist und die entsprechende Animation abspielt, wenn das der Fall sein.
+   * Der setInterval sorgt dafür, dass der darin enthaltene Code regelmässig alle 4 Sekunden ausgeführt wird.
+   * Wenn die isDead() = true zurückgegeben wird, bedeutet das, dass es überprüft wird, ob der Charakter gestorben ist.
+   * Sollte Charakter tot ist, wird die Funktion playAnimation() aufgerufen und die Bilder "IMAGES_DEAD" werden abgespielt.
+   * "setTimeout(() => {" verzögert den Code um 1 Sekunde bevor die Funktion "endGame()" ausgeführt werden kann.
+   * Die "setTimeout()"-Funktion legt fest, dass der Code innerhalb von 1 Sekunde nach dem Tod des Charakters ausgeführt wird.
+   * Die "setInterval()"-Funktion und legt fest, dass der gesamte Prozess Zur überprüfung des Todes des Characters alle 4 Sekunden wiederholt wird.
+   */
   deadFunctionInterval() {
     setInterval(() => {
       if (this.isDead()) {
@@ -183,11 +202,11 @@ class Character extends MovableObject {
   }
 
   /**
-   * The `checkMovement()` method in the `Character` class is responsible for checking the character's movement based on keyboard input.
-   * If the right or left arrow keys are pressed, indicating movement in those directions, it triggers the `playAnimation()` method
-   * with the `IMAGES_WALKING` images to display the walking animation.
-   * Additionally, it sets the `isJump` property to `false` to indicate that the character is not in a jump state.
-   * If there is no movement input detected, it calls the `stopAnimation()` method to handle stopping the animation based on the character's state.
+   * The checkMovement() method in the Character class is responsible for checking the character's movement based on keyboard input.
+   * If the right or left arrow keys are pressed, indicating movement in those directions, it triggers the playAnimation() method
+   * with the IMAGES_WALKING images to display the walking animation.
+   * Additionally, it sets the isJump property to false to indicate that the character is not in a jump state.
+   * If there is no movement input detected, it calls the stopAnimation() method to handle stopping the animation based on the character's state.
    * */
   checkMovement() {
     if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
@@ -199,7 +218,7 @@ class Character extends MovableObject {
   }
 
   /**
-   * The `checkJump()` method in the `Character` class is responsible for handling the character's jumping behavior.
+   * The checkJump() method in the Character class is responsible for handling the character's jumping behavior.
    * Here's a breakdown of what it does:
    * */
   checkJump() {
@@ -219,29 +238,92 @@ class Character extends MovableObject {
   }
 
   /**
-   * The `stopAnimation()` method in the `Character` class is responsible for managing the character's animation when there is no movement input detected.
-   * Here's a breakdown of what it does:
-   * */
+   * Determines the character's animation state based on activity and game conditions.
+   * Calls `movingOrJumping()` if the character is active or jumping.
+   * Activates `sleepingMode()` if inactive for >5 seconds and game has run >10 seconds.
+   * Defaults to `backToIDLE()` when no conditions for movement or sleep are met.
+   * Uses `stopAnimationDefine()` to get required state data for logic decisions.
+   */
   stopAnimation() {
-    this.lastAction = new Date().getTime();
-    let timePassed = new Date().getTime() - this.lastAction;
-    timePassed = timePassed / 1000;
-    let isMoving = false;
+    const { currentTime, timeSinceLastAction, timeSinceGameStart, isMoving } =
+      this.stopAnimationDefine();
 
-    if (
-      !isMoving &&
-      !this.isJump &&
-      !this.world.keyboard.RIGHT &&
-      !this.world.keyboard.LEFT
+    if (isMoving || this.isJump) {
+      this.movingOrJumping(currentTime);
+    } else if (
+      timeSinceLastAction > 5 &&
+      timeSinceGameStart > 10 &&
+      !this.isJump
     ) {
-      this.playAnimation(this.IMAGES_IDLE_PEPE);
-    } else if (timePassed > 5 && isMoving) {
-      this.playAnimation(this.IMAGES_SLEEPING);
-      this.world.audios.snoreSound.play();
-      this.isSleep = true;
+      if (!this.isSleep) {
+        this.sleepingMode();
+      }
     } else {
-      !this.isSleep;
-      this.world.audios.snoreSound.pause();
+      this.backToIDLE();
     }
+  }
+
+  /**
+   * Defines and calculates key variables for managing the character's animation state.
+   * Determines the current time, time since the last action, and time since the game started.
+   * Checks if the character is currently moving or performing a jump action.
+   * Returns an object containing all calculated values for use in animation logic.
+   * Keeps the animation logic modular and reusable across different functions.
+   */
+  stopAnimationDefine() {
+    const currentTime = new Date().getTime();
+    const timeSinceLastAction = (currentTime - this.lastAction) / 1000; // Zeit in Sekunden
+    const timeSinceGameStart = (currentTime - this.gameStartTime) / 1000; // Zeit seit Spielbeginn
+    const isMoving =
+      this.world.keyboard.RIGHT ||
+      this.world.keyboard.LEFT ||
+      this.world.keyboard.SPACE ||
+      this.world.keyboard.D;
+
+    return { currentTime, timeSinceLastAction, timeSinceGameStart, isMoving };
+  }
+
+  /**
+   * Handles the character's behavior during movement or jumping actions.
+   * Sets the character to awake (isSleep = false) and updates the lastAction timestamp.
+   * Pauses any snoring sounds and stops the sleep animation loop if active.
+   * Plays the default idle animation ("IMAGES_IDLE_PEPE") to indicate activity.
+   * Ensures the character does not transition into sleep while active.
+   */
+  movingOrJumping(currentTime) {
+    this.isSleep = false;
+    this.lastAction = currentTime;
+    this.world.audios.snoreSound.pause();
+    clearInterval(this.sleepAnimationInterval);
+    this.playAnimation(this.IMAGES_IDLE_PEPE);
+  }
+
+  /**
+   * Activates the sleeping mode for the character.
+   * Marks the character as asleep (isSleep = true) and starts snoring sounds.
+   * Initiates a fast sleep animation loop for "IMAGES_SLEEPING".
+   * The animation updates at a high speed (every 100ms).
+   * Ensures the character remains in a sleeping state visually and audibly.
+   */
+  sleepingMode() {
+    this.isSleep = true;
+    this.world.audios.snoreSound.play();
+    this.sleepAnimationInterval = setInterval(() => {
+      this.playAnimation(this.IMAGES_SLEEPING);
+    }, 100);
+  }
+
+  /**
+   * Resets the character's state to idle mode.
+   * Stops the sleep animation and snoring sound effects.
+   * Ensures the character is marked as awake (isSleep = false).
+   * Clears any active sleep animation intervals.
+   * Plays the default idle animation for the character.
+   */
+  backToIDLE() {
+    this.isSleep = false;
+    this.world.audios.snoreSound.pause();
+    clearInterval(this.sleepAnimationInterval);
+    this.playAnimation(this.IMAGES_IDLE_PEPE);
   }
 }

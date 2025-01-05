@@ -180,6 +180,7 @@ class World {
         this.character.x + 40,
         this.character.y + 100
       );
+
       this.throwableObjects.push(bottle);
       this.bottles--;
       this.statusBarBottle.setBottle(this.bottles);

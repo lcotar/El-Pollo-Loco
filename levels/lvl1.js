@@ -10,42 +10,27 @@ let lvl1;
 function initLvl() {
   lvl1 = new lvl(
     [
-      // "Negativ Bereich"
+      // Air
       new BackgroundObject("./assets/img/5_background/layers/air.png", -719),
-
-      new BackgroundObject(
-        "./assets/img/5_background/layers/3_third_layer/2.png",
-        -719
-      ),
-
-      new BackgroundObject(
-        "./assets/img/5_background/layers/2_second_layer/2.png",
-        -719
-      ),
-
-      new BackgroundObject(
-        "./assets/img/5_background/layers/1_first_layer/2.png",
-        -719
-      ),
-
       new BackgroundObject("./assets/img/5_background/layers/air.png", 0),
-
-      new BackgroundObject(
-        "./assets/img/5_background/layers/3_third_layer/1.png",
-        0
-      ),
-
-      new BackgroundObject(
-        "./assets/img/5_background/layers/2_second_layer/1.png",
-        0
-      ),
-
-      new BackgroundObject(
-        "./assets/img/5_background/layers/1_first_layer/1.png",
-        0
-      ),
-
       new BackgroundObject("./assets/img/5_background/layers/air.png", 719),
+      new BackgroundObject("./assets/img/5_background/layers/air.png", 719 * 2),
+      new BackgroundObject("./assets/img/5_background/layers/air.png", 719 * 3),
+      new BackgroundObject("./assets/img/5_background/layers/air.png", 719 * 4),
+      new BackgroundObject("./assets/img/5_background/layers/air.png", 719 * 5),
+      new BackgroundObject("./assets/img/5_background/layers/air.png", 719 * 6),
+      new BackgroundObject("./assets/img/5_background/layers/air.png", 719 * 7),
+
+      //3rd Layer
+      new BackgroundObject(
+        "./assets/img/5_background/layers/3_third_layer/2.png",
+        -719
+      ),
+
+      new BackgroundObject(
+        "./assets/img/5_background/layers/3_third_layer/1.png",
+        0
+      ),
 
       new BackgroundObject(
         "./assets/img/5_background/layers/3_third_layer/2.png",
@@ -53,121 +38,155 @@ function initLvl() {
       ),
 
       new BackgroundObject(
+        "./assets/img/5_background/layers/3_third_layer/1.png",
+        719 * 2
+      ),
+
+      new BackgroundObject(
+        "./assets/img/5_background/layers/3_third_layer/2.png",
+        719 * 3
+      ),
+
+      new BackgroundObject(
+        "./assets/img/5_background/layers/3_third_layer/1.png",
+        719 * 4
+      ),
+
+      new BackgroundObject(
+        "./assets/img/5_background/layers/3_third_layer/2.png",
+        719 * 5
+      ),
+
+      new BackgroundObject(
+        "./assets/img/5_background/layers/3_third_layer/1.png",
+        719 * 6
+      ),
+
+      new BackgroundObject(
+        "./assets/img/5_background/layers/3_third_layer/2.png",
+        719 * 7
+      ),
+
+      // 2nd Layer
+      new BackgroundObject(
+        "./assets/img/5_background/layers/2_second_layer/2.png",
+        -719
+      ),
+
+      new BackgroundObject(
+        "./assets/img/5_background/layers/2_second_layer/1.png",
+        0
+      ),
+
+      new BackgroundObject(
         "./assets/img/5_background/layers/2_second_layer/2.png",
         719
       ),
 
       new BackgroundObject(
+        "./assets/img/5_background/layers/2_second_layer/1.png",
+        719 * 2
+      ),
+
+      new BackgroundObject(
+        "./assets/img/5_background/layers/2_second_layer/2.png",
+        719 * 3
+      ),
+
+      new BackgroundObject(
+        "./assets/img/5_background/layers/2_second_layer/1.png",
+        719 * 2
+      ),
+
+      new BackgroundObject(
+        "./assets/img/5_background/layers/2_second_layer/2.png",
+        719 * 4
+      ),
+
+      new BackgroundObject(
+        "./assets/img/5_background/layers/2_second_layer/1.png",
+        719 * 5
+      ),
+
+      new BackgroundObject(
+        "./assets/img/5_background/layers/2_second_layer/2.png",
+        719 * 6
+      ),
+
+      new BackgroundObject(
+        "./assets/img/5_background/layers/2_second_layer/1.png",
+        719 * 7
+      ),
+
+      new BackgroundObject(
+        "./assets/img/5_background/layers/2_second_layer/2.png",
+        719 * 3
+      ),
+
+      new BackgroundObject(
+        "./assets/img/5_background/layers/2_second_layer/1.png",
+        719 * 4
+      ),
+
+      new BackgroundObject(
+        "./assets/img/5_background/layers/2_second_layer/2.png",
+        719 * 5
+      ),
+
+      new BackgroundObject(
+        "./assets/img/5_background/layers/2_second_layer/1.png",
+        719 * 6
+      ),
+
+      new BackgroundObject(
+        "./assets/img/5_background/layers/2_second_layer/2.png",
+        719 * 7
+      ),
+
+      // 1st Layer
+      new BackgroundObject(
+        "./assets/img/5_background/layers/1_first_layer/2.png",
+        -719
+      ),
+
+      new BackgroundObject(
+        "./assets/img/5_background/layers/1_first_layer/1.png",
+        0
+      ),
+
+      new BackgroundObject(
         "./assets/img/5_background/layers/1_first_layer/2.png",
         719
       ),
 
-      // "Positiv" Bereich mit 2 Multipliziert
-      new BackgroundObject("./assets/img/5_background/layers/air.png", 718 * 2),
-
-      new BackgroundObject(
-        "./assets/img/5_background/layers/3_third_layer/1.png",
-        718 * 2
-      ),
-
-      new BackgroundObject(
-        "./assets/img/5_background/layers/2_second_layer/1.png",
-        718 * 2
-      ),
-
       new BackgroundObject(
         "./assets/img/5_background/layers/1_first_layer/1.png",
-        718 * 2
-      ),
-
-      // "Positiv" Bereich mit 3 Multipliziert
-      new BackgroundObject("./assets/img/5_background/layers/air.png", 717 * 3),
-
-      new BackgroundObject(
-        "./assets/img/5_background/layers/3_third_layer/2.png",
-        717 * 3
-      ),
-
-      new BackgroundObject(
-        "./assets/img/5_background/layers/2_second_layer/2.png",
-        717 * 3
+        719 * 2
       ),
 
       new BackgroundObject(
         "./assets/img/5_background/layers/1_first_layer/2.png",
-        717 * 3
-      ),
-
-      // "Positiv" Bereich mit 4 Multipliziert
-      new BackgroundObject("./assets/img/5_background/layers/air.png", 716 * 4),
-
-      new BackgroundObject(
-        "./assets/img/5_background/layers/3_third_layer/1.png",
-        716 * 4
-      ),
-
-      new BackgroundObject(
-        "./assets/img/5_background/layers/2_second_layer/1.png",
-        716 * 4
+        719 * 3
       ),
 
       new BackgroundObject(
         "./assets/img/5_background/layers/1_first_layer/1.png",
-        716 * 4
-      ),
-
-      // "Positiv" Bereich mit 5 Multipliziert
-      new BackgroundObject("./assets/img/5_background/layers/air.png", 715 * 5),
-
-      new BackgroundObject(
-        "./assets/img/5_background/layers/3_third_layer/2.png",
-        715 * 5
-      ),
-
-      new BackgroundObject(
-        "./assets/img/5_background/layers/2_second_layer/2.png",
-        715 * 5
+        719 * 4
       ),
 
       new BackgroundObject(
         "./assets/img/5_background/layers/1_first_layer/2.png",
-        715 * 5
-      ),
-
-      // "Positiv" Bereich mit 6 Multipliziert
-      new BackgroundObject("./assets/img/5_background/layers/air.png", 714 * 6),
-
-      new BackgroundObject(
-        "./assets/img/5_background/layers/3_third_layer/1.png",
-        714 * 6
-      ),
-
-      new BackgroundObject(
-        "./assets/img/5_background/layers/2_second_layer/1.png",
-        714 * 6
+        719 * 5
       ),
 
       new BackgroundObject(
         "./assets/img/5_background/layers/1_first_layer/1.png",
-        714 * 6
-      ),
-
-      // "Positiv" Bereich mit 7 Multipliziert
-      new BackgroundObject("./assets/img/5_background/layers/air.png", 713 * 7),
-
-      new BackgroundObject(
-        "./assets/img/5_background/layers/3_third_layer/2.png",
-        713 * 7
-      ),
-
-      new BackgroundObject(
-        "./assets/img/5_background/layers/2_second_layer/2.png",
-        713 * 7
+        719 * 6
       ),
 
       new BackgroundObject(
         "./assets/img/5_background/layers/1_first_layer/2.png",
-        713 * 7
+        719 * 7
       ),
     ],
     [
